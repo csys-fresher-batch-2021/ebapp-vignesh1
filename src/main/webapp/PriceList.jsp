@@ -28,18 +28,18 @@
    <caption> PerUnit Price List</caption>
    <thead>
     <tr>
-       <th>Units</th>
-       <th>Per Unit Price</th>
+       <th scope="col">Units</th>
+       <th scope="col">Per Unit Price</th>
   </tr>
   </thead>
   <tbody>
   <%
-  int i=0;
+  //int i=0;
   for(UnitPrice up: numberOfList){
-	i++;
+	//i++;
   %>
     <tr>
-      <td> <%=up.minUnit %> - <%=up.maxUnit %><td> Rs. <%=up.price %> </td>
+      <td> <%=up.getMinUnit() %> - <%=up.getMaxUnit() %><td> Rs. <%=up.getPrice() %> </td>
     </tr>
   <%} %>
   </tbody>
