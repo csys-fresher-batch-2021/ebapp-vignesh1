@@ -1,9 +1,9 @@
 package in.vignesh.model;
 
 public class UnitPrice {
-	public int minUnit;
-	public int maxUnit;
-	public double price;
+	private int minUnit;
+	private int maxUnit;
+	private double price;
 
 	// Used for initializing values
 	public UnitPrice(int minUnit, int maxUnit, double price) {

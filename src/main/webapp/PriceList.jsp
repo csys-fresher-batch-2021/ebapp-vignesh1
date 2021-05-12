@@ -24,7 +24,7 @@
 			List<UnitPrice> numberOfList = map.get(key);
 		%>
 		<h3><%=key%></h3>
-		<table border="1">
+		<table class="table table-bordered">
 		
 			<thead>
 				<tr>
