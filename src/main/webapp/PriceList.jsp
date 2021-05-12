@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html  lang="en">
 <head>
 <meta charset="ISO-8859-1">
 <title>PerUnitPrice List</title>
@@ -24,12 +24,13 @@
 			List<UnitPrice> numberOfList = map.get(key);
 		%>
 		<h3><%=key%></h3>
-		<table class="table table-bordered">
+		<table border="1">
+		
 			<thead>
 				<tr>
 
-					<th>Units</th>
-					<th>Per Unit Price</th>
+					<th scope="col">Units</th>
+					<th scope="col">Per Unit Price</th>
 				</tr>
 			</thead>
 			<tbody>
