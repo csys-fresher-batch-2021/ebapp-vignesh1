@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Map;
 import  in.vignesh.model.UnitPrice;
 public class BillManager {
+	private BillManager()
+	{
+		
+	}
 	static Map<String, List<UnitPrice>> map = new LinkedHashMap<>();
 	static {
 		UnitPrice unitPriceHome = new UnitPrice(0, 100, 0.0);
