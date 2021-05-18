@@ -65,8 +65,10 @@ public class BillManager {
 
 		}
 		double perUnitPrice = 0;
-		for(String key : map.keySet()) {
-			List<UnitPrice> unitPrice = map.get(key);
+//		for(String key : map.keySet()) {
+		for (Map.Entry<String,List<UnitPrice>> entry : map.entrySet()) {
+			 String key = entry.getKey();
+		   	List<UnitPrice> unitPrice=entry.getValue();
 			for (UnitPrice up : unitPrice) {
 				if (key.equalsIgnoreCase(type) && units >= up.getMinUnit() && units <= up.getMaxUnit()) {
 					perUnitPrice = up.getPrice();

@@ -9,7 +9,6 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<div align="center">
 			<form action="GenerateBill" method="post">
 				<h3>Bill Calculator</h3>
 				<br> <label for="type">Type:</label> <select name="type"
@@ -24,7 +23,6 @@
 				<button type="submit" class="btn btn-primary">Calculate</button>
 
 			</form>
-		</div>
 	</main>
 </body>
 </html>

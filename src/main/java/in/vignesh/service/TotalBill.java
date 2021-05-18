@@ -1,6 +1,10 @@
 package in.vignesh.service;
 
 public class TotalBill {
+	private TotalBill()
+	{
+		
+	}
 	/**
 	 * This Function is Used to Calculate Total Bill.
 	 * 
@@ -10,8 +14,8 @@ public class TotalBill {
 	 */
 	public static double getTotalBill(String type, int units) {
 		double perUnitPrice =BillManager.getPerUnitPrice(type, units);
-		double totalBill = perUnitPrice * units;
-		return totalBill;
+		return perUnitPrice * units;
+		
 	}
 
 
