@@ -65,7 +65,6 @@ public class BillManager {
 
 		}
 		double perUnitPrice = 0;
-//		for(String key : map.keySet()) {
 		for (Map.Entry<String,List<UnitPrice>> entry : map.entrySet()) {
 			 String key = entry.getKey();
 		   	List<UnitPrice> unitPrice=entry.getValue();
