@@ -21,15 +21,14 @@ public class GenerateBill extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
       try {
-		double units = Double.parseDouble(request.getParameter("units"));
+		Double units = Double.parseDouble(request.getParameter("units"));
         String type = request.getParameter("type");
 		double total = TotalBill.getTotalBill(type, units);
 		response.sendRedirect("result.jsp?totalBillAmount=" + total);
       }
-      catch(NumberFormatException | IOException e)
+      catch(Exception e)
       {
-          System.out.println(e.getMessage());
-
+    	    throw new IOException(e.getMessage());
       }
 
 	}
