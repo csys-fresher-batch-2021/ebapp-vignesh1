@@ -17,8 +17,8 @@
 					<option id="selectType" value="HOME">HOME</option>
 					<option id="selectType" value="COMMERCIAL">COMMERCIAL</option>
 					<option id="selectType" value="AGRICULTURE">AGRICULTURE</option>
-				</select><br> <label for="units">Units: </label> <input type="number"
-					id="units" name="units" min="1" max="1000" size="16" required>
+				</select><br> <label for="units">Units: </label> 
+				<input type="number" id="units" name="units" min="1.0" max="1000.0" size="16"  step="0.01" required>
 				<br>
 				<button type="submit" class="btn btn-primary">Calculate</button>
 

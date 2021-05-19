@@ -12,7 +12,7 @@ public class TotalBill {
 	 * @param units
 	 * @return
 	 */
-	public static double getTotalBill(String type, int units) {
+	public static double getTotalBill(String type, double units) {
 		double perUnitPrice =BillManager.getPerUnitPrice(type, units);
 		return perUnitPrice * units;
 		

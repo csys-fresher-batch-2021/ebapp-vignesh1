@@ -2,15 +2,15 @@ package in.vignesh.model;
 
 public class UnitPrice {
 
-	private  int minUnit;
-	private int maxUnit;
+	private  double minUnit;
+	private double maxUnit;
 	private  double price;
 
-	public int getMinUnit() {
+	public double getMinUnit() {
 		return minUnit;
 	}
 
-	public int getMaxUnit() {
+	public double getMaxUnit() {
 		return maxUnit;
 	}
 
@@ -21,7 +21,7 @@ public class UnitPrice {
 
 
 	// Used for initializing values
-	public UnitPrice(int minUnit, int maxUnit, double price) {
+	public UnitPrice(double minUnit, double maxUnit, double price) {
 		this.minUnit = minUnit;
 		this.maxUnit = maxUnit;
 		this.price = price;

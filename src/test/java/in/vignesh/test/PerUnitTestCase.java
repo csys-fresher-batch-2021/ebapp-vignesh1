@@ -11,10 +11,10 @@ public class PerUnitTestCase {
 	public void test() {
 		
 		
-		int units=100;
+		double units=100;
 		String type="Home";
 	    double per=BillManager.getPerUnitPrice(type, units);
-	    System.out.println(per);
+	    System.out.println(per);;
 	    assertEquals(0.0f,per,0);
 
 	}

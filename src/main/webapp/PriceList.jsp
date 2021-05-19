@@ -37,7 +37,7 @@
 					//i++;
 				%>
 				<tr>
-					<td><%=up.getMinUnit()%> - <%=up.getMaxUnit()%>
+					<td><%=up.getMinUnit()%> - <%=up.getMaxUnit()%></td>
 					<td>Rs. <%=up.getPrice()%>
 					</td>
 				</tr>
