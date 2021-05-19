@@ -18,20 +18,19 @@ public class GenerateBill extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-    try {
+      try {
 		double units = Double.parseDouble(request.getParameter("units"));
-		String type = request.getParameter("type");
+        String type = request.getParameter("type");
 		double total = TotalBill.getTotalBill(type, units);
 		response.sendRedirect("result.jsp?totalBillAmount=" + total);
-		
-    }
-       
-       catch(IOException e){
-    	  e.getMessage();
-    	}  
-     
+      }
+      catch(NumberFormatException | IOException e)
+      {
+          System.out.println(e.getMessage());
+
+      }
 
 	}
 }

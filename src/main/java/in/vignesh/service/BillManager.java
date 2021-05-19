@@ -13,25 +13,25 @@ public class BillManager {
 
 	private static final Map<String, List<UnitPrice>> map = new LinkedHashMap<>();
 	static {
-		UnitPrice unitPriceHome = new UnitPrice(0.0, 100.0, 0.0);
-		UnitPrice unitPriceHome1 = new UnitPrice(101.0, 400.0, 20.0);
-		UnitPrice unitPriceHome2 = new UnitPrice(401.0, 1000.0, 30.0);
+		UnitPrice unitPriceHome = new UnitPrice(0, 100, 0.0);
+		UnitPrice unitPriceHome1 = new UnitPrice(101, 400, 20.0);
+		UnitPrice unitPriceHome2 = new UnitPrice(401, 1000, 30.0);
 		List<UnitPrice> homeList = new ArrayList<>();
 		homeList.add(unitPriceHome);
 		homeList.add(unitPriceHome1);
 		homeList.add(unitPriceHome2);
 		map.put("HOME", homeList);
-		UnitPrice unitPriceCom = new UnitPrice(0.0, 100.0, 10.0);
-		UnitPrice unitPriceCom1 = new UnitPrice(101.0, 400.0, 40.0);
-		UnitPrice unitPriceeCom2 = new UnitPrice(401.0, 1000.0, 60.0);
+		UnitPrice unitPriceCom = new UnitPrice(0, 100, 10.0);
+		UnitPrice unitPriceCom1 = new UnitPrice(101, 400, 40.0);
+		UnitPrice unitPriceeCom2 = new UnitPrice(401, 1000, 60.0);
 		List<UnitPrice> commercialList = new ArrayList<>();
 		commercialList.add(unitPriceCom);
 		commercialList.add(unitPriceCom1);
 		commercialList.add(unitPriceeCom2);
 		map.put("COMMERCIAL", commercialList);
-		UnitPrice unitPriceAgri = new UnitPrice(0.0, 100.0, 5.0);
-		UnitPrice unitPriceAgri1 = new UnitPrice(101.0, 400.0, 10.0);
-		UnitPrice unitPriceAgri2 = new UnitPrice(401.0, 1000.0, 20.0);
+		UnitPrice unitPriceAgri = new UnitPrice(0, 100, 5.0);
+		UnitPrice unitPriceAgri1 = new UnitPrice(101, 400, 10.0);
+		UnitPrice unitPriceAgri2 = new UnitPrice(401, 1000, 20.0);
 		List<UnitPrice> agricultureList = new ArrayList<>();
 		agricultureList.add(unitPriceAgri);
 		agricultureList.add(unitPriceAgri1);
@@ -57,10 +57,10 @@ public class BillManager {
 	 */
 
 	public static double getPerUnitPrice(String type, double units) {
-		if (units < 0 || units > 1000) {
+		if ( (units < 0 || units > 1000)) {
 			throw new IllegalArgumentException("Invalid Unit");
 		}
-		if (!(map.containsKey(type.toUpperCase()))) {
+		if (!(type!=null && map.containsKey(type.toUpperCase()))) {
 			throw new IllegalArgumentException("Invalid Type");
 
 		}

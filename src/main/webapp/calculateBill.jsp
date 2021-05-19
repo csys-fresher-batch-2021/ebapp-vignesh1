@@ -9,7 +9,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-			<form action="GenerateBill" method="post">
+			<form action="GenerateBill" method="GET">
 				<h3>Bill Calculator</h3>
 				<br> <label for="type">Type:</label> <select name="type"
 					id="selectType" required>
