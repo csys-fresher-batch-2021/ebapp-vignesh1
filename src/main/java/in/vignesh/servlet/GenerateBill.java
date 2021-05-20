@@ -1,7 +1,7 @@
 package in.vignesh.servlet;
 
 import java.io.IOException;
-
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,11 +11,13 @@ import in.vignesh.service.TotalBill;
 
 
 
+
 /**
  * Servlet implementation class GenerateBill
  */
 @WebServlet("/GenerateBill")
 public class GenerateBill extends HttpServlet {
+	
 	
 	private static final long serialVersionUID = 1L;
 	@Override
@@ -29,7 +31,8 @@ public class GenerateBill extends HttpServlet {
       }
       catch(NumberFormatException | IOException e)
       {    
-    		 System.out.print(e.getMessage());
+    	     
+    		 Logger.getLogger(e.getMessage());
 
       }
 
