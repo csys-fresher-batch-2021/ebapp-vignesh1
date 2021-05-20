@@ -1,6 +1,7 @@
 package in.vignesh.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,9 +27,10 @@ public class GenerateBill extends HttpServlet {
 		double total = TotalBill.getTotalBill(type, units);
 		response.sendRedirect("result.jsp?totalBillAmount=" + total);
       }
-      catch(Exception e)
-      {
-    	    throw new IOException(e.getMessage());
+      catch(NumberFormatException | IOException e)
+      {    
+    		 System.out.print(e.getMessage());
+
       }
 
 	}
