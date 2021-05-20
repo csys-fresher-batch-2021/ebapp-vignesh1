@@ -78,7 +78,7 @@ public class PerUnitTestCase {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void test10() {
-		double units = 200;
+		double units = 2000;
 		String type = "Agriculture";
 		BillManager.getPerUnitPrice(type, units);
         
