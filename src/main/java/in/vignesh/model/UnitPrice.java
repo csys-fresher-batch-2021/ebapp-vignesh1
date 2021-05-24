@@ -2,9 +2,9 @@ package in.vignesh.model;
 
 public class UnitPrice {
 
-	private  double minUnit;
+	private double minUnit;
 	private double maxUnit;
-	private  double price;
+	private double price;
 
 	public double getMinUnit() {
 		return minUnit;
@@ -17,8 +17,6 @@ public class UnitPrice {
 	public double getPrice() {
 		return price;
 	}
-
-
 
 	// Used for initializing values
 	public UnitPrice(double minUnit, double maxUnit, double price) {

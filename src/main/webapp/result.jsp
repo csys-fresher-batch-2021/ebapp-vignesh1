@@ -14,9 +14,9 @@
 		<%
 		Double totalBillAmount = Double.parseDouble(request.getParameter("totalBillAmount"));
 		%>
-		
+
 		Your Total Bill Amount Rs.<%=totalBillAmount%>
-		
+
 
 	</main>
 </body>

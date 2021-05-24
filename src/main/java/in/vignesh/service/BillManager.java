@@ -57,17 +57,17 @@ public class BillManager {
 	 */
 
 	public static double getPerUnitPrice(String type, double units) {
-		if ( (units < 0 || units > 1000)) {
+		if ((units < 0 || units > 1000)) {
 			throw new IllegalArgumentException("Invalid Unit");
 		}
-		if (!(type!=null && map.containsKey(type.toUpperCase()))) {
+		if (!(type != null && map.containsKey(type.toUpperCase()))) {
 			throw new IllegalArgumentException("Invalid Type");
 
 		}
 		double perUnitPrice = 0;
-		for (Map.Entry<String,List<UnitPrice>> entry : map.entrySet()) {
-			 String key = entry.getKey();
-		   	List<UnitPrice> unitPrice=entry.getValue();
+		for (Map.Entry<String, List<UnitPrice>> entry : map.entrySet()) {
+			String key = entry.getKey();
+			List<UnitPrice> unitPrice = entry.getValue();
 			for (UnitPrice up : unitPrice) {
 				if (key.equalsIgnoreCase(type) && units >= up.getMinUnit() && units <= up.getMaxUnit()) {
 					perUnitPrice = up.getPrice();
