@@ -53,6 +53,7 @@ public class PerUnitTestCase {
 		double perUnitPrice = BillManager.getPerUnitPrice(type, units);
 		assertEquals(10.0f, perUnitPrice, 0);
 	}
+
 	@Test
 	public void test7() {
 		double units = 500;
@@ -68,6 +69,7 @@ public class PerUnitTestCase {
 		double perUnitPrice = BillManager.getPerUnitPrice(type, units);
 		assertEquals(60.0f, perUnitPrice, 0);
 	}
+
 	@Test
 	public void test9() {
 		double units = 1000;
@@ -75,22 +77,21 @@ public class PerUnitTestCase {
 		double perUnitPrice = BillManager.getPerUnitPrice(type, units);
 		assertEquals(20.0f, perUnitPrice, 0);
 	}
-	
+
 	@Test(expected = IllegalArgumentException.class)
 	public void test10() {
 		double units = 2000;
 		String type = "Agriculture";
 		BillManager.getPerUnitPrice(type, units);
-        
+
 	}
+
 	@Test(expected = IllegalArgumentException.class)
 	public void test11() {
 		double units = 200;
 		String type = "Agri";
 		BillManager.getPerUnitPrice(type, units);
-		
-	}
 
-	
+	}
 
 }

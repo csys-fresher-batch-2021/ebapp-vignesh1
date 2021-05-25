@@ -24,7 +24,7 @@
 		<h3><%=key%></h3>
 		<table class="table table-bordered">
 			<caption></caption>
-			<thead class="thead-light">
+			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Units</th>
 					<th scope="col">Per Unit Price</th>
