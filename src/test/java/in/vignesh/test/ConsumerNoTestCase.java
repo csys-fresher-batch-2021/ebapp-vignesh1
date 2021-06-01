@@ -1,37 +1,32 @@
 package in.vignesh.test;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import in.vignesh.validator.UserValidation;
 
-public class ConsumerNoTestCase {
+class ConsumerNoTestCase {
 
-	@Test
-	public void test1() {
-       String consumerNo="033490033324";
-       boolean actual=UserValidation.isValidConsumerNo(consumerNo);
-       assertTrue(actual);
+	@Order(1)
+	@ParameterizedTest
+	@CsvSource({
+		"123490033324,0334900333,vignesh"
+	})
+	void invalidTestCase(String consumerNo) {
+		boolean isValid = UserValidation.isValidConsumerNo(consumerNo);
+		assertFalse(isValid);
 	}
-
-	@Test
-	public void test2() {
-       String consumerNo="123490033324";
-       boolean actual=UserValidation.isValidConsumerNo(consumerNo);
-       assertFalse(actual);
-	}
-	@Test
-	public void test3() {
-       String consumerNo="0334900333";
-       boolean actual=UserValidation.isValidConsumerNo(consumerNo);
-       assertFalse(actual);
-	}
-	@Test
-	public void test4() {
-       String consumerNo="vignesh";
-       boolean actual=UserValidation.isValidConsumerNo(consumerNo);
-       assertFalse(actual);
+	@Order(2)
+	@ParameterizedTest
+	@CsvSource({
+		"033490033324"
+	})
+	
+	void validTestCase(String consumerNo) {
+		boolean Valid = UserValidation.isValidConsumerNo(consumerNo);
+		assertTrue(Valid);
 	}
 
 

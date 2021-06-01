@@ -1,14 +1,16 @@
 package in.vignesh.util;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import org.apache.log4j.Logger;
 public class ConnectionUtil {
 	private ConnectionUtil() {
 
 	}
+    static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		String driverClass = "org.postgresql.Driver";
@@ -17,7 +19,7 @@ public class ConnectionUtil {
 		String password = "viki75300";
 		Class.forName(driverClass);
 		Connection connection = DriverManager.getConnection(url, username, password);
-		System.out.println("Connection Created");
+		LOGGER.info("Connection Created");
 		return connection;
 	}
 
@@ -26,7 +28,7 @@ public class ConnectionUtil {
 			if (con != null && st != null) {
 				con.close();
 				st.close();
-				System.out.println("Connection Released");
+				LOGGER.info("Connection Released");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

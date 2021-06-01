@@ -1,97 +1,29 @@
 package in.vignesh.test;
-
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import in.vignesh.validator.UserValidation;
-
-public class CustomerIdTestCase {
-
-	@Test
-	public void test1() {
-
-		String customerId = "vig03324";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertTrue(value);
+ class CustomerIdTestCase {
+	@Order(1)
+	@ParameterizedTest
+	@CsvSource({
+		"vig0,12345678,vign@12,-vign12"
+	})
+	void invalidTestCase(String customerId) {
+		boolean isValid = UserValidation.isValidCustomerId(customerId);
+		assertFalse(isValid);
 	}
-
-	@Test
-	public void test2() {
-
-		String customerId = "vig0";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertFalse(value);
+	@Order(2)
+	@ParameterizedTest
+	@CsvSource({
+		"vig03324,Vign12,vigneshk,Vign_12,Vign.12"
+	})
+	
+	void validTestCase(String customerId) {
+		boolean Valid = UserValidation.isValidCustomerId(customerId);
+		assertTrue(Valid);
 	}
-
-	@Test
-	public void test3() {
-
-		String customerId = "Vign12";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertTrue(value);
-	}
-
-	@Test
-	public void test4() {
-
-		String customerId = "vigneshk";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertTrue(value);
-	}
-
-	@Test
-	public void test5() {
-
-		String customerId = "12345678";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertFalse(value);
-	}
-
-	@Test
-	public void test6() {
-
-		String customerId = "Vign_12";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertTrue(value);
-	}
-	@Test
-	public void test7() {
-
-		String customerId = "Vign.12";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertTrue(value);
-	}
-	@Test
-	public void test8() {
-
-		String customerId = "vign_esh";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertTrue(value);
-	}
-	@Test
-	public void test9() {
-
-		String customerId = "vign@12";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertFalse(value);
-	}
-	@Test
-	public void test10() {
-
-		String customerId = "";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertFalse(value);
-	}
-	@Test
-	public void test11() {
-
-		String customerId = "-vign12";
-		boolean value = UserValidation.isValidCustomerId(customerId);
-		assertFalse(value);
-	}
-
-
-
-
 }
