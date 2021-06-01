@@ -24,7 +24,7 @@ public class UserValidation {
 	public static boolean isValidMobile(String mobileNo) {
 		boolean validMobile = false;
 
-		Pattern pattern = Pattern.compile("[7-9]{1}[0-9]{9}");
+		Pattern pattern = Pattern.compile("(0/91)?[7-9][0-9]{9}");
 		Matcher matcher = pattern.matcher(mobileNo);
 		if (matcher.matches()) {
 			validMobile = true;

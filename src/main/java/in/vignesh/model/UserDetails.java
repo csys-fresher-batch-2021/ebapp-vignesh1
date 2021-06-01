@@ -31,13 +31,17 @@ public class UserDetails {
 		return confirmPassword;
 	}
 
-	public UserDetails(String name, String mobileNo, String consumerNumber, String customerId, String password, String confirmPassword2) {
+	public UserDetails(String name, String mobileNo, String consumerNumber, String customerId, String password,
+			String confirmPassword) {
+		super();
 		this.name = name;
 		this.mobileNo = mobileNo;
 		this.consumerNumber = consumerNumber;
 		this.customerId = customerId;
 		this.password = password;
+		this.confirmPassword = confirmPassword;
 	}
+
 	
 
 }
