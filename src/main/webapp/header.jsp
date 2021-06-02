@@ -7,7 +7,7 @@ String role = (String) session.getAttribute("ROLE");
 
 <header>
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-		<a class="navbar-brand" href="index.jsp">Electricity Bill
+		<a class="navbar-brand" href="#">Electricity Bill
 			Calculation</a>
 		<button class="navbar-toggler d-lg-none" type="button"
 			data-toggle="collapse" data-target="#collapsibleNavId"
@@ -37,6 +37,9 @@ String role = (String) session.getAttribute("ROLE");
 			<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 				<li class="nav-item active"><a class="nav-link"
 					href="AdminLogin.jsp">AdminLogin</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="Registration.jsp">Register</a></li>
+
 			</ul>
 			<%
 			}

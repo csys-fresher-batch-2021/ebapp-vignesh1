@@ -11,7 +11,6 @@ public class DisplayTestCase {
 	@Test
 	public void test() {
 		Map<String, List<UnitPrice>> numberOfList = BillManager.getList();
-		System.out.println(numberOfList);
 		assertEquals(3, numberOfList.size());
 	}
 }

@@ -8,6 +8,45 @@ public class UserValidation {
 
 	}
 
+	public static boolean isValidName(String name) {
+		boolean validName = false;
+
+		Pattern pattern = Pattern.compile("^[a-zA-Z+\\s]+$");
+		Matcher matcher = pattern.matcher(name);
+		if (matcher.matches()) {
+			validName = true;
+
+		}
+		return validName;
+
+	}
+
+	public static boolean isValidMobile(String mobileNo) {
+		boolean validMobile = false;
+
+		Pattern pattern = Pattern.compile("(0/91)?[7-9][0-9]{9}");
+		Matcher matcher = pattern.matcher(mobileNo);
+		if (matcher.matches()) {
+			validMobile = true;
+
+		}
+		return validMobile;
+
+	}
+
+	public static boolean isValidConsumerNo(String consumerNo)
+
+	{
+		boolean validConsumerNo = false;
+		Pattern pattern = Pattern.compile("[0]{1}[1-9]{1}[0-9]{10}");
+		Matcher matcher = pattern.matcher(consumerNo);
+		if (matcher.matches()) {
+			validConsumerNo = true;
+		}
+		return validConsumerNo;
+
+	}
+
 	public static boolean isValidCustomerId(String customerId) {
 		boolean validCustomerId = false;
 		Pattern pattern = Pattern.compile("^[a-zA-Z]([._-](?![._-])|[a-zA-Z0-9]){4,15}[a-zA-Z0-9]$");

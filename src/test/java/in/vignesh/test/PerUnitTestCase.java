@@ -4,9 +4,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import in.vignesh.service.BillManager;
-
 public class PerUnitTestCase {
-	@Test
+		@Test
 	public void test1() {
 		double units = 25;
 		String type = "Home";
@@ -76,22 +75,6 @@ public class PerUnitTestCase {
 		String type = "Agriculture";
 		double perUnitPrice = BillManager.getPerUnitPrice(type, units);
 		assertEquals(20.0f, perUnitPrice, 0);
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void test10() {
-		double units = 2000;
-		String type = "Agriculture";
-		BillManager.getPerUnitPrice(type, units);
-
-	}
-
-	@Test(expected = IllegalArgumentException.class)
-	public void test11() {
-		double units = 200;
-		String type = "Agri";
-		BillManager.getPerUnitPrice(type, units);
-
 	}
 
 }

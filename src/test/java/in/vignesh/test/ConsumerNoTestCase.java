@@ -6,24 +6,28 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import in.vignesh.validator.UserValidation;
- class CustomerIdTestCase {
+
+class ConsumerNoTestCase {
+
 	@Order(1)
 	@ParameterizedTest
 	@CsvSource({
-		"vig0,12345678,vign@12,-vign12"
+		"123490033324,0334900333,vignesh"
 	})
-	void invalidTestCase(String customerId) {
-		boolean isValid = UserValidation.isValidCustomerId(customerId);
+	void invalidTestCase(String consumerNo) {
+		boolean isValid = UserValidation.isValidConsumerNo(consumerNo);
 		assertFalse(isValid);
 	}
 	@Order(2)
 	@ParameterizedTest
 	@CsvSource({
-		"vig03324,Vign12,vigneshk,Vign_12,Vign.12"
+		"033490033324"
 	})
 	
-	void validTestCase(String customerId) {
-		boolean Valid = UserValidation.isValidCustomerId(customerId);
+	void validTestCase(String consumerNo) {
+		boolean Valid = UserValidation.isValidConsumerNo(consumerNo);
 		assertTrue(Valid);
 	}
+
+
 }
