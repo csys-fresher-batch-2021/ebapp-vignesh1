@@ -1,0 +1,65 @@
+@charset "ISO-8859-1";
+
+body{
+	margin: auto;
+	padding: 0;
+	background-image: url("https://www.aboriginalaccess.ca/sites/aboriginalaccess.ca/files/img/hero/electrical-engineering.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.Userlogin {
+	width: 430px;
+	overflow: hidden;
+	margin: auto;
+	margin: 20 0 0 450px;
+	padding: 70px;
+	background-image: url("https://c1.wallpaperflare.com/preview/953/650/393/lightbulb-bulb-light-idea.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+	border-radius: 25px;
+}
+
+h2 {
+	text-align: center;
+	color: #B03A2E;
+	padding: 20px;
+}
+
+label {
+	color: #000009;
+	font-size: 20px;
+}
+
+#customerId {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#password {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#submit {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 17px;
+	padding-left: 7px;
+}
+
+#reset {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 17px;
+	padding-left: 7px;
+}

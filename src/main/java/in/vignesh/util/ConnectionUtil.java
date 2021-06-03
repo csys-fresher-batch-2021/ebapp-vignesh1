@@ -10,14 +10,15 @@ public class ConnectionUtil {
 	private ConnectionUtil() {
 
 	}
-    static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
+   static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		String driverClass = "org.postgresql.Driver";
 		String url = "jdbc:postgresql://localhost/eb_db";
 		String username = "postgres";
 		String password = "viki75300";
-		Class.forName(driverClass);
+	
+     	Class.forName(driverClass);
 		Connection connection = DriverManager.getConnection(url, username, password);
 		LOGGER.info("Connection Created");
 		return connection;
@@ -35,3 +36,4 @@ public class ConnectionUtil {
 		}
 	}
 }
+	

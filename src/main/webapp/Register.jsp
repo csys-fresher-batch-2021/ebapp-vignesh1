@@ -10,6 +10,8 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
 	 <h3>User successfully registered!</h3>
+	<a href="UserLogin.jsp">click here to login->></a>
+	 
 	
 	
 </main>
