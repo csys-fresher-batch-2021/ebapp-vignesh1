@@ -10,14 +10,19 @@ public class ConnectionUtil {
 	private ConnectionUtil() {
 
 	}
-    static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
+	private static String driverClass = System.getenv("spring.datasource.driver-class-name");
+	private static String url = System.getenv("spring.datasource.url");
+	private static String username = System.getenv("spring.datasource.username");
+	private static String password = System.getenv("spring.datasource.password");
+   static final Logger LOGGER = Logger.getLogger(ConnectionUtil.class);
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-		String driverClass = "org.postgresql.Driver";
-		String url = "jdbc:postgresql://localhost/eb_db";
-		String username = "postgres";
-		String password = "viki75300";
-		Class.forName(driverClass);
+//		String driverClass = "org.postgresql.Driver";
+//		String url = "jdbc:postgresql://localhost/eb_db";
+//		String username = "postgres";
+//		String password = "viki75300";
+		
+     	Class.forName(driverClass);
 		Connection connection = DriverManager.getConnection(url, username, password);
 		LOGGER.info("Connection Created");
 		return connection;

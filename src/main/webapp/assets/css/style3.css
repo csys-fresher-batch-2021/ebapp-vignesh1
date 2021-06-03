@@ -1,0 +1,99 @@
+@charset "ISO-8859-1";
+
+.reg {
+	margin: 0;
+	padding: 0;
+	background-image:
+		url("https://lh3.googleusercontent.com/proxy/ZbKMw7t3rP3TG43kgkaGhoA3I76v7wBrJer-1cPZ5bPK_3iVm6cYDRRLZeGwa0l9oqOpg7YYV8z_YPeXVnSOKaHA4yhzmbsfOooIquJBRcJg_-06xff5tBmw8-Tcgsi7_EMMFha-YVaWX0xacL0657dwBwqMq-CMMlKwMSfccSFU=w1200-h630-p-k-no-nu");
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: 'Arial';
+}
+
+.register {
+	width: 600px;
+	overflow: hidden;
+	margin: auto;
+	margin: 20 0 0 450px;
+	padding: 80px;
+	background-image:
+		url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRydoBqByhQaAT8Lvttbc3Ql907oNcczS5Hw1bsZmnqNAY2bMThRqPiA2hB6587S6MaxKU&usqp=CAU");
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 15px;
+}
+
+h2 {
+	text-align: center;
+	color: #B03A2E;
+	padding: 20px;
+}
+
+label {
+	color: #000000;
+	font-size: 17px;
+}
+
+#name {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#mobileNumber {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#ConsumerNumber {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#customerId {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#password {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#confirmpassword {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
+
+#submit {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 17px;
+	padding-left: 7px;
+}
+
+#reset {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 17px;
+	padding-left: 7px;
+}

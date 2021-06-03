@@ -4,11 +4,16 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registration</title>
+<link rel="stylesheet" href="assets/css/style3.css">
+
 </head>
 <body>
+<div class="reg">
 <jsp:include page="header.jsp"></jsp:include>
+
 	<main class="container-fluid">
+	
 	<%
 		String errorMessage = request.getParameter("errorMessage");
 		if(errorMessage != null){
@@ -21,16 +26,18 @@
 			out.println("<font color='red'>" + existsMessage + "</font>");
 		}
 	%>
-	
+		<h2>Registration</h2>
+		<div class="register">
+		
 	<form action="RegistrationAction" method="post">
 	<label for="name"><strong>Name:</strong></label><br>
 	<input type="text" name="name" placeholder="Enter your name" required autofocus><br>
 	 
 	<label for="mobileNumber"><strong>Mobile Number:</strong></label><br>
-	<input type="tel" name="mobileNumber" placeholder="Enter your mobile number" required><br>
+	<input type="number" name="mobileNumber" placeholder="Enter your mobileNo" required><br>
 	
 	<label for="ConsumerNumber"><strong>Consumer Number:</strong></label><br>
-	<input type="tel" name="ConsumerNumber" placeholder="Enter your consumer number" required><br>
+	<input type="number" name="ConsumerNumber" placeholder="Enter your consumerNo" required><br>
 	
 	<label for="customerId"><strong>CustomerId:</strong></label><br>
 	<input type="text" name="customerId" placeholder="Enter your Customer Id" required><br>
@@ -44,7 +51,8 @@
 	<button type="submit" class="btn btn-success">Submit</button>
 	<button  type="reset" class="btn btn-warning">Reset</button>
 	</form>
-
+	</div>
 </main>
+</div>
 </body>
 </html>
