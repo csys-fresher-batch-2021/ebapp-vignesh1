@@ -1,17 +1,12 @@
 @charset "ISO-8859-1";
 
-body{
-	
+body {
 	margin: 0;
 	padding: 0;
 	background-image:
 		url("https://image.freepik.com/free-vector/office-background-video-conferencing_23-2148642204.jpg");
-	background-size: cover;	
+	background-size: cover;
 	background-repeat: no-repeat;
-	
-	
-	font-family: 'Arial';
-
 }
 
 .Adminlogin {
@@ -22,9 +17,8 @@ body{
 	padding: 70px;
 	background-image:
 		url("https://cdn2.vectorstock.com/i/1000x1000/68/21/businessman-using-face-mask-for-covid19-character-vector-30576821.jpg");
-	background-size: cover;	
+	background-size: cover;
 	background-repeat: no-repeat;
-	
 	border-radius: 15px;
 }
 
