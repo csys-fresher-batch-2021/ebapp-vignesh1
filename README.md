@@ -3,12 +3,15 @@
 Feature 1:
 
       ->Get Number Of List,
+      
       -> Test case Included(DisplayTestCase).
  
 Feature 2:
 
       -> PerUnitPrice and Generate Total Bill,
+      
          I will change the code to database in next sprint
+         
          static vaules:
          
          Type              Units            PerUnitPrice
@@ -25,6 +28,7 @@ Feature 2:
                            401-1000(max)      20.0
                            
     -> Test case Included(PerUnitTestCase),
+    
     -> Test case Included(TotalBillTestCase).
 
 Feature:3 
