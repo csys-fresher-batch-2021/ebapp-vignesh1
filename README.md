@@ -1,13 +1,16 @@
 #Electricity Bill Calculator
 
 Feature 1:
+
       ->Get Number Of List,
       -> Test case Included(DisplayTestCase).
  
 Feature 2:
+
       -> PerUnitPrice and Generate Total Bill,
          I will change the code to database in next sprint
          static vaules:
+         
          Type              Units            PerUnitPrice
          Home              0-100              0.0
                            101-400            20.0
@@ -22,9 +25,10 @@ Feature 2:
                            401-1000(max)      20.0
                            
     -> Test case Included(PerUnitTestCase),
-   -> Test case Included(TotalBillTestCase).
+    -> Test case Included(TotalBillTestCase).
 
 Feature:3 
+
         ->Admin Login.
 
          Admin CustomerId:
@@ -34,11 +38,15 @@ Feature:3
          Admin password:
               Admin@123.
 
-Feature:4 Register User.
+Feature:4 
 
-   ->RegistrationValidation
+     Register User.
+
+    - >RegistrationValidation
    
-Feature:5 User login.
+Feature:5 
 
-   ->UserValidation
+     User login.
+
+    ->UserValidation
 
