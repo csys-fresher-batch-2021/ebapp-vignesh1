@@ -47,6 +47,11 @@ Feature:4
      Register User.
 
     - >RegistrationValidation
+       name:^[a-zA-Z+\\s]+$
+       mobile number:(0/91)?[7-9][0-9]{9}
+       consumer No:[0]{1}[1-9]{1}[0-9]{10}(Eg:033490032324)
+       customer Id:^[a-zA-Z]([._-](?![._-])|[a-zA-Z0-9]){4,15}[a-zA-Z0-9]$
+       password:^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^)])(?=\\S+$).{8,20}$
    
 Feature:5 
 
