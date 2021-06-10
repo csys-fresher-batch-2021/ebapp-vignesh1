@@ -5,7 +5,7 @@ public class UnitPrice {
 	private double minUnit;
 	private double maxUnit;
 	private double price;
-
+	
 	public double getMinUnit() {
 		return minUnit;
 	}
@@ -24,9 +24,5 @@ public class UnitPrice {
 		this.maxUnit = maxUnit;
 		this.price = price;
 	}
-
-	@Override
-	public String toString() {
-		return "UnitPrice [ minUnit=" + minUnit + ", maxUnit=" + maxUnit + ", price=" + price + "]";
-	}
+	
 }

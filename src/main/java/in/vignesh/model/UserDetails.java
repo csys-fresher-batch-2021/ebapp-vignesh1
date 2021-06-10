@@ -1,5 +1,4 @@
 package in.vignesh.model;
-
 public class UserDetails {
 	private String name;
 	private String mobileNo;
@@ -27,6 +26,7 @@ public class UserDetails {
 	public String getPassword() {
 		return password;
 	}
+
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
@@ -41,7 +41,5 @@ public class UserDetails {
 		this.password = password;
 		this.confirmPassword = confirmPassword;
 	}
-
-	
 
 }

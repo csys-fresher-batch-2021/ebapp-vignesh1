@@ -1,8 +1,8 @@
 package in.vignesh.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import in.vignesh.dao.AdminDao;
+import in.vignesh.exception.DBException;
+import in.vignesh.exception.ServiceException;
 import in.vignesh.validator.UserValidation;
 
 public class AdminLogin {
@@ -10,23 +10,18 @@ public class AdminLogin {
 
 	}
 
-	private static final Map<String, String> adminDetail = new HashMap<>();
-	static {
-		adminDetail.put("Admin1", "Admin@123");
-		adminDetail.put("Admin2", "Admin@123");
-	}
-
 	public static boolean adminLogin(String customerId, String password) {
 		boolean validLogin = false;
-		if (UserValidation.isValidCustomerId(customerId) && UserValidation.isValidPassword(password)
-				&& adminDetail.containsKey(customerId)) {
-			String adminPassword = adminDetail.get(customerId);
-			if (adminPassword.equals(password)) {
-				validLogin = true;
+		if (UserValidation.isValidCustomerId(customerId) && UserValidation.isValidPassword(password)) {
+			AdminDao dao = new AdminDao();
+			try {
+				validLogin = dao.validAdminLogin(customerId, password);
+			} catch (DBException e) {
+				throw new ServiceException("invalid Login credentials");
 			}
+
 		}
 		return validLogin;
-
 	}
 
 }

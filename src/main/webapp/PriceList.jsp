@@ -32,9 +32,7 @@
 			</thead>
 			<tbody>
 				<%
-				//int i=0;
 				for (UnitPrice up : numberOfList) {
-					//i++;
 				%>
 				<tr>
 					<td><%=up.getMinUnit()%> - <%=up.getMaxUnit()%></td>
