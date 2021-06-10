@@ -1,11 +1,12 @@
 package in.vignesh.service;
 
 import java.util.ArrayList;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import in.vignesh.model.UnitPrice;
 
+import in.vignesh.model.UnitPrice;
 public class BillManager {
 	private BillManager() {
 
@@ -45,6 +46,7 @@ public class BillManager {
 	 * @return
 	 */
 	public static Map<String, List<UnitPrice>> getList() {
+		
 		return map;
 	}
 
@@ -79,5 +81,6 @@ public class BillManager {
 		return perUnitPrice;
 
 	}
+
 
 }
