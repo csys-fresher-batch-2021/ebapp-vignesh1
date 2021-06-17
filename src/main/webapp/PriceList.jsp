@@ -12,7 +12,7 @@
 <title>PerUnitPrice List</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="header1.jsp"></jsp:include>
 	<main class="container-fluid">
 		<h2>PerUnitPrice List</h2>
 
@@ -32,9 +32,7 @@
 			</thead>
 			<tbody>
 				<%
-				//int i=0;
 				for (UnitPrice up : numberOfList) {
-					//i++;
 				%>
 				<tr>
 					<td><%=up.getMinUnit()%> - <%=up.getMaxUnit()%></td>

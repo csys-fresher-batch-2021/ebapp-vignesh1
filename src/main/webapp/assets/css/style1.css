@@ -8,7 +8,7 @@ body{
 	background-repeat: no-repeat;
 }
 
-.Userlogin {
+.login {
 	width: 430px;
 	overflow: hidden;
 	margin: auto;
@@ -21,7 +21,7 @@ body{
 	border-radius: 25px;
 }
 
-h2 {
+h3 {
 	text-align: center;
 	color: #B03A2E;
 	padding: 20px;
@@ -32,7 +32,7 @@ label {
 	font-size: 20px;
 }
 
-#customerId {
+#customerid {
 	width: 300px;
 	height: 30px;
 	border: none;
@@ -49,6 +49,7 @@ label {
 }
 
 #submit {
+		text-align: center;
 	width: 300px;
 	height: 30px;
 	border: none;
@@ -56,10 +57,3 @@ label {
 	padding-left: 7px;
 }
 
-#reset {
-	width: 300px;
-	height: 30px;
-	border: none;
-	border-radius: 17px;
-	padding-left: 7px;
-}
