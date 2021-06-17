@@ -7,10 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="header2.jsp"></jsp:include>
 	<main class="container-fluid">
-	 <h3>User successfully registered!</h3>
-	<a href="UserLogin.jsp">click here to login->></a>
+	
+	
+
+	 <h3>User Successfully Added!</h3>
+	 <br>
+	 <span style="color: #00e676; font-style: inherit;"><%=(request.getAttribute("regmsg") == null) ? "" : request.getAttribute("regmsg")%></span>
+	 <br>
 	 
 	
 	

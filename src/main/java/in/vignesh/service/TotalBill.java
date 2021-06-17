@@ -17,6 +17,5 @@ public class TotalBill {
 		return perUnitPrice * units;
 		
 	}
-
-
+    
 }

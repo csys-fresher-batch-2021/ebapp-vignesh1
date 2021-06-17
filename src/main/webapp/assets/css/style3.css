@@ -40,7 +40,13 @@ label {
 	border-radius: 3px;
 	padding-left: 8px;
 }
-
+#email {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
 #mobileNumber {
 	width: 300px;
 	height: 30px;
@@ -56,7 +62,13 @@ label {
 	border-radius: 3px;
 	padding-left: 8px;
 }
-
+#address {
+	width: 300px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	padding-left: 8px;
+}
 #customerId {
 	width: 300px;
 	height: 30px;

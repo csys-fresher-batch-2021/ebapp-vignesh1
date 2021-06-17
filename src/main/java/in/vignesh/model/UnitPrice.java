@@ -1,7 +1,7 @@
 package in.vignesh.model;
 
 public class UnitPrice {
-
+    
 	private double minUnit;
 	private double maxUnit;
 	private double price;

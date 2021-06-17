@@ -14,7 +14,7 @@ public class UserLogin {
 		try {
 			LoginDao dao=new LoginDao();
 			validLogin = dao.loginDao(customerId,password);
-		} catch (DBException e) {
+		} catch (DBException | ClassNotFoundException e) {
 			throw new ServiceException("unable to verify user credentials");
 		}
 		return validLogin;

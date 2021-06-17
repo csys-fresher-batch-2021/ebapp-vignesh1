@@ -69,4 +69,39 @@ public class UserValidation {
 		return validPassword;
 
 	}
+
+	public static boolean isValidEmail(String email) {
+		boolean validEmail = false;
+
+		Pattern pattern = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
+		Matcher matcher = pattern.matcher(email);
+		if (matcher.matches()) {
+			validEmail = true;
+		}
+		return validEmail;
+
+	}
+
+	public static boolean isValidAddress(String address) {
+		boolean validAddress = false;
+
+		Pattern pattern = Pattern.compile("^[a-zA-Z+\\s]+$");
+		Matcher matcher = pattern.matcher(address);
+		if (matcher.matches()) {
+			validAddress = true;
+		}
+		return validAddress;
+
+	}
+	public static boolean isNumeric(double number) {
+		boolean validNumber = false;
+
+	    
+		if (number>=0 && number<=1000) {
+			validNumber = true;
+		}
+		return validNumber;
+
+	}
+
 }
