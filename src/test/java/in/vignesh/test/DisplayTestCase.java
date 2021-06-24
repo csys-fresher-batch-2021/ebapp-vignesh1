@@ -7,13 +7,13 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import in.vignesh.model.UnitPrice;
+import in.vignesh.model.Unit;
 import in.vignesh.service.BillManager;
 
 public class DisplayTestCase {
 	@Test
 	public void test() {
-		Map<String, List<UnitPrice>> numberOfList = BillManager.getList();
+		Map<String, List<Unit>> numberOfList = BillManager.getList();
 		assertEquals(3, numberOfList.size());
 
 	}
