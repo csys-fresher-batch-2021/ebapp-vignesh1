@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -20,20 +19,22 @@ import in.vignesh.service.TotalBill;
 public class GenerateBill extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-    static final Logger LOGGER = Logger.getLogger(GenerateBill.class);
-
+	static final Logger LOGGER = Logger.getLogger(GenerateBill.class);
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			HttpSession session = request.getSession();
-			session.setAttribute("LOGINUSER", "USER");
 
 			Double units = Double.parseDouble(request.getParameter("units"));
 			String type = request.getParameter("type");
 			double total = TotalBill.getTotalBill(type, units);
+			// double perUnitPrice = BillManager.getPerUnitPrice(type, units);
+//			response.sendRedirect("result.jsp?unit=" + units);
+			// response.sendRedirect("result.jsp?PriceAmount=" + perUnitPrice);
 			response.sendRedirect("result.jsp?totalBillAmount=" + total);
+			// request.setAttribute("perUnitPrice", perUnitPrice);
+			// .getRequestDispatcher("result.jsp?PriceAmount=").forward(request, response);
 		} catch (NumberFormatException | IOException e) {
 			LOGGER.error(e.getMessage());
 

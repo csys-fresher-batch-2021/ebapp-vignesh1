@@ -65,10 +65,10 @@ while(resultSet.next())
 	<td><%=resultSet.getDouble(3) %></td>
 
 
-	<td><%=resultSet.getInt(7) %></td>
+	<td><%=resultSet.getDouble(7) %></td>
 
 
-	<td><%=resultSet.getInt(13) %></td>
+	<td><%=resultSet.getDouble(13) %></td>
 	<td><%=resultSet.getTimestamp(15)%></td>
 
 	<%

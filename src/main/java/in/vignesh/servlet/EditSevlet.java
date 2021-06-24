@@ -2,7 +2,7 @@ package in.vignesh.servlet;
 
 import java.io.IOException;
 
-import java.sql.SQLException;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +29,7 @@ public class EditSevlet extends HttpServlet {
 	
 		System.out.println("inside edit section");
 		UserBean userBean = new UserBean();
-		userBean.setUserid(Integer.parseInt(request.getParameter("userid")));
+		userBean.setUserid(Integer.parseInt(request.getParameter("id")));
 		userBean.setUseremail(request.getParameter("email"));
 		userBean.setName(request.getParameter("uname"));
 		userBean.setUseraddress(request.getParameter("address"));
@@ -42,6 +42,4 @@ public class EditSevlet extends HttpServlet {
 		request.getRequestDispatcher("edituser.jsp").forward(request, response);
 	}
 	}
-
-
 

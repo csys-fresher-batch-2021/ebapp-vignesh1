@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Registration</title>
+<title>bill amount</title>
 </head>
 <body>
 <jsp:include page="header2.jsp"></jsp:include>
@@ -29,26 +29,26 @@
 <strong><label style="color: red;">Zone Name</label></strong>
   <input type="search" class="form-control rounded" placeholder="Search By Zone Name" name="zone" aria-label="Search"
     aria-describedby="search-addon" />
+    <br>
   
 </form>
 	<% 
-	int index=1;
 	String id=request.getParameter("userid");
 	String zone=request.getParameter("zone");
 	Connection con = ConnectionUtil.getConnection();
-Statement statement=con.createStatement();
+	Statement statement=con.createStatement();
 String sql=null;
 if(id!=null )
 {
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'NOT PAID' AND USERID='"+id+"'";
+	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND USERID='"+id+"'";
 }
 else if(zone!=null)
 {
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'NOT PAID' AND ZONE='"+zone+"'";
+	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND ZONE='"+zone+"'";
 }
 else
 {
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'NOT PAID'  ORDER BY ID DESC ";
+	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid'  ORDER BY ID DESC ";
 }
 ResultSet resultSet=statement.executeQuery(sql);
 %>
@@ -73,13 +73,13 @@ ResultSet resultSet=statement.executeQuery(sql);
 		{
 		%>
 	<tr>
-	<td><%=resultSet.getInt(2) %></td>
+	<td><%=resultSet.getInt("USERID") %></td>
 	
-	<td><%=resultSet.getString(8) %></td>
-	<td><%=resultSet.getString(3) %></td>	
-		<td><%=resultSet.getDouble(4) %></td>
+	<td><%=resultSet.getString("NAME") %></td>
+	<td><%=resultSet.getString("ZONE") %></td>	
+		<td><%=resultSet.getDouble("UNIT") %></td>
 	
-	<td><%=resultSet.getDouble(6) %></td>
+	<td><%=resultSet.getDouble("TAMT") %></td>
 	
      </tr>
                 <%

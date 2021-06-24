@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="in.vignesh.util.ConnectionUtil"%>
@@ -27,38 +28,34 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">USERID</th>
-					<th scope="col">Name</th>
-				     <th scope="col">Amount Paid</th> 
-				    <th scope="col">Date Time</th>
+					<th scope="col">NAME</th>
+					<th scope="col">MONTH</th>
+					<th scope="col">YEAR</th>
+				     <th scope="col">AMOUNT PAID</th> 
+				    <th scope="col">DATE TIME</th>
 				</tr>
 			</thead>
-	<%int index=1; %>
 <%
 String user=(String)session.getAttribute("user");
 UserBean bean=new UserBean();
 bean.getUserid();
 System.out.print(bean.getUserid());
+String sql="SELECT * FROM E_CALBILL where CUSTOMERID='"+user+"' AND STATUS='PAID'";
 Connection con = ConnectionUtil.getConnection();
-Statement statement=con.createStatement();
-ResultSet resultSet=statement.executeQuery("SELECT * FROM E_CALBILL where CUSTOMERID='"+user+"' AND STATUS='PAID'");
+PreparedStatement statement=con.prepareStatement(sql);
+ResultSet resultSet=statement.executeQuery();
 while(resultSet.next())
 {
 	%>
 
 
 	<tr>
-	<td><%=index++ %></td>
-	<td><%=resultSet.getInt(2) %></td>
-	<td><%=resultSet.getString(8) %></td>
-	<td><%=resultSet.getInt(13) %></td>
-
-
-
-
-
-
-
-	<td><%=resultSet.getTimestamp(15) %></td>
+	<td><%=resultSet.getInt("USERID") %></td>
+	<td><%=resultSet.getString("NAME") %></td>
+	<td><%=resultSet.getString("MONTH") %></td>
+	<td><%=resultSet.getString("YEAR") %></td>	
+	<td><%=resultSet.getDouble("AMTPAID") %></td>
+	<td><%=resultSet.getTimestamp("MODIFIED") %></td>
 
 
 

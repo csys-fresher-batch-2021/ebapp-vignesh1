@@ -6,16 +6,47 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>calculation</title>
+<style>
+.rs {
+	text-align: center;
+}
+</style>
+
 </head>
 <body>
 	<jsp:include page="header1.jsp"></jsp:include>
 	<main class="container-fluid">
+	<br><br><br><br>
+	
+		<div class="rs">
 
-		<%
-		Double totalBillAmount = Double.parseDouble(request.getParameter("totalBillAmount"));
-		%>
+			<%
+		 Double totalBillAmount = Double.parseDouble(request.getParameter("totalBillAmount"));
+		
 
-		Your Total Bill Amount Rs.<%=totalBillAmount%>
+			%>
+			<table class="table table-bordered">
+				<caption></caption>
+				<thead class="table-primary">
+					<tr>
+		
+				      <th scope="col">Your Total Bill Amount</th>
+					
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+				
+					  					   
+					  
+					   	<td>Rs.<%=totalBillAmount%></td>
+					
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 
 	</main>

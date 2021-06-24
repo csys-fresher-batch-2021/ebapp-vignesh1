@@ -11,6 +11,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>AdminLogin</title>
+<style >
+.cal {
+	width: 1000px;
+	overflow: hidden;
+	margin: auto;
+	margin: 20 0 0 600px;
+	padding: 70px;
+	background-image: url("https://lookaftermybills.com/wp-content/uploads/2019/05/Pre-payment-01-2-768x402.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+	border-radius: 25px;
+}
+
+h3{
+	text-align: center;
+
+}
+</style>
 </head>
 
 <body>
@@ -18,15 +37,20 @@
 <jsp:include page="header2.jsp"></jsp:include>
 	<main class="container-fluid">
 					<h3><strong>Enter Bill Information</strong></h3>
-				
+				        	    <div class="cal">
+					
+							
 					
 						 <form action="CalcBillCtrl" method="post" > 
                          <span style="color: #00e676; font-style: inherit;" ><%=(request.getAttribute("msg") == null) ? "" : request.getAttribute("msg")%></span>
+                         
+                         
                                  <br>
 								<label for="">UserId</label><br>
-								<input class="form-control" type="text" placeholder="Search.." name="userid" pattern="\d*"  required><br>
+								<input  type="text" placeholder="Search.." name="userid" pattern="\d*"  required>
 								 <input  type="submit" name="Action" value="Search" class="btn btn-info"> <br>
 								</form>	
+								<br>
 								
 	
 							<%
@@ -44,47 +68,59 @@
             
 
 							<form action="CalcBillCtrl" method="post" >
+							
 						
-								<label for="">UserId</label>
-								<input class="form-control" type="text" value="<%=pList.get(0) %>" name="userid" >
+								<label for="">UserId</label><br>
+								<input type="text" value="<%=pList.get(0) %>" name="userid" ><br>
 							
 								
-								<label for="exampleInputPassword1">Name</label> <input
-									type="text" class="form-control" id="exampleInputPassword1"
-							      placeholder="Enter name" name="name" value="<%=pList.get(1) %>">
+								<label for="name">Name</label><br> <input
+									type="text" id="name"
+							      placeholder="Enter name" name="name" value="<%=pList.get(1) %>"><br>
+							      
+							      <label for="consumerno">Consumer No</label><br> <input
+									type="text"  id="consumerno"
+							      placeholder="Enter Consumer No" name="consumerno" value="<%=pList.get(2) %>"><br>
+							      
+							      <label for="customerid">Customer id</label><br> <input
+									type="text"  id="exampleInputPassword1"
+							      placeholder="Enter customer Id" name="customerid" value="<%=pList.get(3) %>"><br>
+							        
+							        
 							        
 							
-								<label for="exampleInputPassword1">Zone name</label> <input
-									type="text" class="form-control" id="exampleInputPassword1"
-									placeholder="Enter Zone name" name="zonename" value="<%=pList.get(2) %>">
+								<label for="zonename">Zone name</label><br> <input
+									type="text"  id="zonename"
+									placeholder="Enter Zone name" name="zonename" value="<%=pList.get(4) %>"><br>
 									
+							     <label for="type">Type</label><br>
 									
-								<label for="exampleInputPassword1">Type</label> <input
-									type="text" class="form-control" id="exampleInputPassword1"
-									placeholder="Enter Type" name="type" id="type" required>
+								<select name="type"	id="selectType" required>
+				                <option disabled>Select Type</option>
+				                <option id="selectType" value="HOME">HOME</option>
+				               <option id="selectType" value="COMMERCIAL">COMMERCIAL</option>
+			                	<option id="selectType" value="AGRICULTURE">AGRICULTURE</option>
+		                       	</select><br> 
 						
 						
-								<label for="exampleInputPassword1">Unit Consumed</label> <input
-									type="number" class="form-control" id="exampleInputPassword1"
-									placeholder="Enter Unit" name="unit" pattern="\d*" id="unitconsumed" required>
+								<label for="unitconsumed">Unit Consumed</label> <br><input
+									type="number" id="unitconsumed"
+									placeholder="Enter Unit" name="unit" pattern="\d*" id="unitconsumed" required><br>
 						
 						
-								<label for="exampleInputPassword1">Any Dues</label> <input
-									type="text" class="form-control" 
-									placeholder="Enter Dues" name="dues" pattern="\d*" required>
+								<label for="dues">Any Dues</label> <br><input
+									type="text" 
+									placeholder="Enter Dues" name="dues" pattern="\d*" required><br>
 							
-								<label for="exampleInputPassword1">Year</label>
-									<select name="year" class="form-control">
-									<option value="2020">2022</option>
-									<option value="2019">2021</option>
+								<label for="year">Year</label><br>
+									<input
+									type="number" 
+									placeholder="yyyy" name="year" pattern="\d*" id="year" required><br>
 									
-									<option value="2018">2020</option>
-									<option value="2017" >2019</option>
+						
 									
-									</select>
-									
-								<label for="exampleInputPassword1">Month</label>
-									<select name="month" class="form-control">
+								<label for="month">Month</label><br>
+									<select name="month">
 									<option value="January">January</option>
 									<option value="February">February</option>
 									<option value="March">March</option>
@@ -97,12 +133,12 @@
 									<option value="October">October</option>
 									<option value="November">November</option>
 									<option value="Decemeber">December</option>
-									</select>
+									</select><br>
 									
 							
 								<span style="color: #00e676; font-style: inherit;"><%=(request.getAttribute("msg") == null) ? "" : request.getAttribute("msg")%></span>
 						 
-							
+							<br>
 							<button type="submit" class="btn btn-primary" name="Action" value="Calculate Bill">Calculate Bill</button>
 						
             			<%
@@ -121,7 +157,7 @@
 					
 						 </form> 
 					
-
+</div>
 </main>
 </body>
 </html>
