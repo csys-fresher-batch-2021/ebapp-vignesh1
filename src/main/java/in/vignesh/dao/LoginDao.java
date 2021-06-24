@@ -9,7 +9,7 @@ import in.vignesh.exception.DBException;
 import in.vignesh.model.UserBean;
 import in.vignesh.util.ConnectionUtil;
 
-public class LoginDAO {
+public class LoginDao {
 
 	public String authenticateUser(UserBean bean) throws SQLException {
 		String customerId = bean.getCustomerId();

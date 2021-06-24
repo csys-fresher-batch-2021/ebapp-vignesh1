@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import in.vignesh.dao.LoginDAO;
+import in.vignesh.dao.LoginDao;
 import in.vignesh.model.UserBean;
 
 /**
@@ -47,7 +47,7 @@ public class LoginCtrl extends HttpServlet {
 		UserBean bean = new UserBean();
 		bean.setCustomerId(cusId);
 		bean.setPassword(pass);
-		LoginDAO dao = new LoginDAO();
+		LoginDao dao = new LoginDao();
 		try {
 			String result = dao.authenticateUser(bean);
 			System.out.println("result " + result);

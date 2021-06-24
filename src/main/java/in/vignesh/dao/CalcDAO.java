@@ -11,9 +11,6 @@ import in.vignesh.service.TotalBill;
 import in.vignesh.util.ConnectionUtil;
 
 public class CalcDAO {
-	private CalcDAO() {
-
-	}
 
 	public void calculateBill(CalcBill bill) {
 
