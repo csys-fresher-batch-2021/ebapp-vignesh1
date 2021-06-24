@@ -18,8 +18,8 @@ HttpSession session2=request.getSession(false);
 if(session2!=null)
 {
 	
-	session2.invalidate();
-	//session2.removeAttribute("admin");
+	//session2.invalidate();
+    session2.removeAttribute("admin");
 	request.setAttribute("ermsg","You have logged out");
 	RequestDispatcher dispatcher=request.getRequestDispatcher("login.jsp");
 	dispatcher.forward(request, response);

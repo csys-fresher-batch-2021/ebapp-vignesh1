@@ -11,7 +11,7 @@
 <body>
 <div class="reg">
 
-		<jsp:include page="header2.jsp"></jsp:include>
+		<jsp:include page="header1.jsp"></jsp:include>
 		<main class="container-fluid">
 
 			<%
@@ -30,7 +30,7 @@ if(session.getAttribute("ERROR")!=null)
 	%>
 
 	
-			<h2>ADD USER</h2>
+			<h2>REGISTERATION</h2>
             <div class="register">
             
 				<form action="RegisterServlet" method="post">

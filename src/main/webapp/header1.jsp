@@ -11,7 +11,8 @@ if(request.getSession(false).getAttribute("user")==null)
 
 <header>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <a class="navbar-brand" href="index.jsp">Electricity Bill Calculation</a>
+  <a class="navbar-brand" href="welcome.jsp">Electricity Bill Management
+  </a>
   <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
       aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -22,14 +23,23 @@ if(request.getSession(false).getAttribute("user")==null)
 	    <li class="nav-item">
 		<a class="nav-link" href="userhome.jsp">Home</a>
 		</li>
+		 <li class="nav-item">
+         <a class="nav-link"href="adduser.jsp">Register</a>
+       </li>
 	    <li class="nav-item">
-		<a class="nav-link" href="viewprofile.jsp">View profile</a>
+		<a class="nav-link" href="viewprofile.jsp">ViewProfile</a>
+		</li>
+		 <li class="nav-item">
+		<a  class="nav-link" href="PriceList.jsp">PriceList</a>
+		</li>
+		 <li class="nav-item">
+		<a  class="nav-link" href="calculateBill.jsp">BillCalculator</a>
 		</li>
 	    <li class="nav-item">
-		<a class="nav-link"  href="viewbill.jsp">View Bill</a>
+		<a class="nav-link"  href="viewbill.jsp">ViewBill</a>
 		</li>
 	    <li class="nav-item">
-		<a  class="nav-link" href="paymenthistory.jsp">Payment History</a>
+		<a  class="nav-link" href="paymenthistory.jsp">PaymentHistory</a>
 		</li>
         <li class="nav-item active" style=" color: white">
 		<a>Welcome <%=session.getAttribute("user") %></a>

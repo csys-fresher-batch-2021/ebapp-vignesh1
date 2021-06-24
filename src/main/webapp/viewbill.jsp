@@ -17,23 +17,24 @@
 	<main class="container-fluid">
 <h3>ViewBill</h3>
 <br>
-<%int i=0; %>
 <%
 String user=(String)session.getAttribute("user");
 UserBean bean=new UserBean();
-System.out.println(user);
 Connection connection = null;
 PreparedStatement pst = null;
+System.out.println(user);
 connection  = ConnectionUtil.getConnection();
-String sql="SELECT ID USERID,NAME,UNIT,YEAR,MONTH,TAMT,DUES,STATUS FROM E_CALBILL  WHERE CUSTOMERID='"+user+"'";
+String sql="SELECT ID,USERID,NAME,UNIT,YEAR,MONTH,TAMT,DUES,STATUS FROM E_CALBILL  WHERE CUSTOMERID='"+user+"'";
 pst=connection.prepareStatement(sql);
 ResultSet resultSet=pst.executeQuery();
 %>
+
+
 <table class="table table-bordered">
 			<caption></caption>
 			<thead class="thead-dark">
 				<tr>
-				   	<th scope="col">ID</th>
+				    <th scope="col">ID</th>
 					<th scope="col">USERID</th>
 					<th scope="col">NAME</th>
 					<th scope="col">UNIT</th>
@@ -55,33 +56,28 @@ while(resultSet.next())
 
 		<tbody>
 	<tr>
-	<td><%=i++ %></td>
-	<td><%=resultSet.getInt(2) %></td>
-	<td><%=resultSet.getString(8) %></td>
-	<td><%=resultSet.getDouble(3) %></td>
-	<td><%=resultSet.getString(11) %></td>
-	<td><%=resultSet.getString(6) %></td>
-	<td><%=resultSet.getDouble(7) %></td>
-	<td><%=resultSet.getDouble(12) %></td>
-	<td><%=resultSet.getString(10) %></td>
-	</tr>
-	<%String a=resultSet.getString(10);
+	<td><%=resultSet.getInt("ID") %></td>
+	<td><%=resultSet.getInt("USERID") %></td>
+	<td><%=resultSet.getString("NAME") %></td>
+	<td><%=resultSet.getDouble("UNIT") %></td>
+	<td><%=resultSet.getString("YEAR") %></td>
+	<td><%=resultSet.getString("MONTH") %></td>
+	<td><%=resultSet.getDouble("TAMT") %></td>
+	<td><%=resultSet.getDouble("DUES") %></td>
+	<td><%=resultSet.getString("STATUS") %></td>
+	<%String a=resultSet.getString("STATUS");
 	System.out.print("value of a is "+a);
-	%>
-	<%
 	if(a.equals("PAID"))
-	{  
-	%>
-	<tr>
+	{%>
 	<td><a  onclick="return false" class="btn btn-warning" >Pay</a></td>
-	</tr>
+	
 	<%}
 	else{%>
-	<tr>
-	<td><a class="btn btn-primary" href="paybill.jsp?id=<%=resultSet.getInt(1)%>" onclick="return true">Pay</a></td>
+	<td><a class="btn btn-primary" href="paybill.jsp?id=<%=resultSet.getInt("ID")%>" onclick="return true">Pay</a></td>
 	</tr>
 	<%}%>
 
+	
 	<%
 }
 %>

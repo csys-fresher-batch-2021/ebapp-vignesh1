@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="in.vignesh.util.ConnectionUtil"%>
@@ -10,10 +11,18 @@
 <meta charset="ISO-8859-1">
 <title>Admin Profile</title>
 <style>
-tr {
-  display: table-row;
-  vertical-align: inherit;
-  border-color: inherit;
+body {
+	background-image: url("https://www.propmodo.com/wp-content/uploads/2020/07/remote-office-work.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+td,tr{
+background-color: #f2f2f2;
+}
+h3{
+color: #D5F605;
+
+}
 }
 </style>
 </head>
@@ -22,13 +31,13 @@ tr {
 <jsp:include page="header2.jsp"></jsp:include>
 
 	<main class="container-fluid">
-   <h2>Admin Profile</h2>
+   <h3>ADMIN PROFILE</h3>
     
 <%
 Connection con = ConnectionUtil.getConnection();
-Statement statement=con.createStatement();
 String sql="SELECT * FROM E_USER WHERE ROLEID=1";
-ResultSet rs=statement.executeQuery(sql);
+PreparedStatement statement=con.prepareStatement(sql);
+ResultSet rs=statement.executeQuery();
 while(rs.next())
 {
 	%>

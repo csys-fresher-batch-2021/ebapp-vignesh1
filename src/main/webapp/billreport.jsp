@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="in.vignesh.util.ConnectionUtil"%>
@@ -42,34 +43,38 @@
 	String id=request.getParameter("userid");
 	
 Connection con = ConnectionUtil.getConnection();
-Statement statement=con.createStatement();
 String sql=null;
+PreparedStatement statement=null;
 if(id!=null )
 {
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'PAID' AND USERID='"+id+"'";
+	con = ConnectionUtil.getConnection();
+    sql=	"SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND USERID=?";
+    statement=con.prepareStatement(sql);
 }
 else
 {
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'PAID' ORDER BY ID DESC ";
+	 con = ConnectionUtil.getConnection();
+	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid'  ORDER BY ID DESC ";
+    statement=con.prepareStatement(sql);
 }
-ResultSet resultSet=statement.executeQuery(sql);
+ResultSet resultSet=statement.executeQuery();
 while(resultSet.next())
 {
 	%>
 
 	<tbody >
 	<tr>
-	<td><%=resultSet.getInt(2) %></td>
+	<td><%=resultSet.getInt("USERID") %></td>
+	<td><%=resultSet.getString("NAME") %></td>
 
-	<td><%=resultSet.getString(8) %></td>
-	<td><%=resultSet.getDouble(3) %></td>
-
-
-	<td><%=resultSet.getInt(7) %></td>
+	<td><%=resultSet.getDouble("UNIT") %></td>
 
 
-	<td><%=resultSet.getInt(13) %></td>
-	<td><%=resultSet.getTimestamp(15)%></td>
+	<td><%=resultSet.getDouble("TAMT") %></td>
+	<td><%=resultSet.getDouble("AMTPAID") %></td>
+		<td><%=resultSet.getTimestamp("DATEANDTIME") %></td>
+	
+
 
 	<%
 }

@@ -1,9 +1,8 @@
 package in.vignesh.servlet;
 
 import java.io.IOException;
-
-
 import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import in.vignesh.dao.LoginDAO;
+import in.vignesh.dao.LoginDao;
 import in.vignesh.model.UserBean;
-
 
 /**
  * Servlet implementation class LoginCtrl
@@ -23,16 +21,10 @@ public class LoginCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public LoginCtrl() {
-		super();
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -45,8 +37,8 @@ public class LoginCtrl extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
 		System.out.println("inside post");
 		String cusId = request.getParameter("customerid");
@@ -54,7 +46,7 @@ public class LoginCtrl extends HttpServlet {
 		UserBean bean = new UserBean();
 		bean.setCustomerId(cusId);
 		bean.setPassword(pass);
-		LoginDAO dao = new LoginDAO();
+		LoginDao dao = new LoginDao();
 		try {
 			String result = dao.authenticateUser(bean);
 			System.out.println("result " + result);
@@ -81,7 +73,7 @@ public class LoginCtrl extends HttpServlet {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | IOException | ServletException e) {
 			e.printStackTrace();
 		}
 	}

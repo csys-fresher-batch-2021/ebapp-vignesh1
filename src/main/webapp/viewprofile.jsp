@@ -6,46 +6,65 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>PerUnitPrice List</title>
+<title>view profile</title>
+<style>
+body {
+    background-image: url("https://img.freepik.com/free-vector/abstract-grey-background-with-dynamic-waves-technology-network_29865-1635.jpg?size=626&ext=jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+td,tr{
+background-color: #E5EFAC;
+}
+
+
+</style>
 
 </head>
 <body>
 	<jsp:include page="header1.jsp"></jsp:include>
 	<main class="container-fluid">
 
-<%
-String user=(String)session.getAttribute("user");
-Connection con = ConnectionUtil.getConnection();
-Statement statement=con.createStatement();
-String sql="SELECT * FROM E_USER WHERE CUSTOMERID='"+user+"'";
-ResultSet rs=statement.executeQuery(sql);
-while(rs.next())
-{
-	%>
-
-							<h4>User Profile </h4>
-							<a href="editprofileView.jsp?id=<%=rs.getInt(1)%>">
-							<span class="fa fa-edit" style="font-size: 20px; color: gray;">Edit</span></a>
-	
-								<h4 style="color: #00b1b1;"><%=rs.getString(2) %>
-								</h4>
-								 <p>
-										User ID:
-										<%=rs.getInt(1) %></p>
-										
-										
-	<table >
-	<tr><td>Name:</td><td><%=rs.getString(2) %></td></tr>
-	<tr><td>Email:</td><td><%=rs.getString(3) %></td></tr>
-	<tr><td>Contact:</td><td><%=rs.getString(4) %></td></tr>
-	<tr><td>Address:</td><td><%=rs.getString(6) %></td></tr>
-	</table>
-							
-
-
-	<%
-}
-%>
-</main>
+		<%
+		String user = (String) session.getAttribute("user");
+		Connection con = ConnectionUtil.getConnection();
+		String sql = "SELECT * FROM E_USER WHERE CUSTOMERID='" + user + "'";
+		PreparedStatement statement = con.prepareStatement(sql);
+		ResultSet rs = statement.executeQuery();
+		while (rs.next()) {
+		%>
+		<br>
+		<h4 style="color: #1693EA">USER PROFILE</h4>
+		<h5 style="color: #00b1b1; font-weight: bold; text-transform: uppercase;"><%=rs.getString(2)%></h5>
+	    <a href="editprofileView.jsp?id=<%=rs.getInt(1)%>"> <span style="font-size: 12px; padding:5px; color: #DE514E;">Edit MyProfile</span></a>
+		
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><%=rs.getString(2)%></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><%=rs.getString(3)%></td>
+			</tr>
+			<tr>
+				<td>Contact:</td>
+				<td><%=rs.getString(4)%></td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td><%=rs.getString(6)%></td>
+			</tr>
+			
+		</table>
+			<%
+		}
+		%>
+      
+	</main>
 </body>
 </html>
+		
+	
+
+
