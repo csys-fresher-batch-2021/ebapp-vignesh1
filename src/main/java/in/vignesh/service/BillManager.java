@@ -19,7 +19,7 @@ public class BillManager {
 		for (Unit unit : allList) {
 
 			String type = unit.getType();
-			List<Unit> priceList = map.containsKey(type) ? map.get(type) : new ArrayList<Unit>();
+			List<Unit> priceList = map.containsKey(type) ? map.get(type) : new ArrayList<>();
 			Unit unitPrice = new Unit(unit.getMinUnit(), unit.getMaxUnit(), unit.getPrice());
 			priceList.add(unitPrice);
 			map.put(type, priceList);

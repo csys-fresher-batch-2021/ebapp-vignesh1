@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
-
 import in.vignesh.service.TotalBill;
 
 /**
@@ -18,7 +16,6 @@ import in.vignesh.service.TotalBill;
 public class GenerateBill extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	static final Logger LOGGER = Logger.getLogger(GenerateBill.class);
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -31,7 +28,7 @@ public class GenerateBill extends HttpServlet {
 			response.sendRedirect("result.jsp?totalBillAmount=" + total);
 
 		} catch (NumberFormatException | IOException e) {
-			LOGGER.error(e.getMessage());
+			e.printStackTrace();
 
 		}
 
