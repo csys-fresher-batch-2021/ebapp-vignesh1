@@ -26,6 +26,8 @@ import in.vignesh.util.ConnectionUtil;
 @WebServlet("/CalcBillCtrl")
 public class CalcBillCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String BILL = "bill";
+	private static final String PAYBILL = "paybill";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -44,8 +46,7 @@ public class CalcBillCtrl extends HttpServlet {
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 		if (request.getParameter("Action").equals("Calculate Bill")) {
 
 			CalcBill bill = new CalcBill();
@@ -62,25 +63,30 @@ public class CalcBillCtrl extends HttpServlet {
 			bill.setDues(Double.parseDouble(request.getParameter("dues")));
 			LocalDate date = LocalDate.now();
 			String year = String.valueOf(date.getYear());
-			int calculateyear = bill.getYear().compareTo(year);
-			if (calculateyear < 0) {
-				String msg = "Enter Year correctly";
-				request.setAttribute("msg", msg);
-				request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
-			}
-			CalcDAO calcDAO = new CalcDAO();
+			try {
+				int calculateyear = bill.getYear().compareTo(year);
+				if (calculateyear < 0) {
+					String msg = "Enter Year correctly";
+					request.setAttribute("msg", msg);
+					request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
+				}
+				CalcDAO calcDAO = new CalcDAO();
 
-			if (!calcDAO.billExists(bill)) {
-				calcDAO.calculateBill(bill);
-				HttpSession httpSession = request.getSession();
-				httpSession.setAttribute("bill", bill);
-				String msg = "Bill Calculated";
-				request.setAttribute("msg", msg);
-				request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
-			} else {
-				String msg = "Bill  Already Calculated";
-				request.setAttribute("msg", msg);
-				request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
+				if (!calcDAO.billExists(bill)) {
+					calcDAO.calculateBill(bill);
+					HttpSession httpSession = request.getSession();
+					httpSession.setAttribute("bill", BILL);
+					String msg = "Bill Calculated";
+					request.setAttribute("msg", msg);
+					request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
+				} else {
+					String msg = "Bill  Already Calculated";
+					request.setAttribute("msg", msg);
+					request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
+				}
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+
 			}
 
 		}
@@ -115,7 +121,7 @@ public class CalcBillCtrl extends HttpServlet {
 				RequestDispatcher view = request.getRequestDispatcher("CalculateBillView.jsp");
 				view.forward(request, response);
 
-			} catch (SQLException e) {
+			} catch (SQLException | ServletException | IOException e) {
 				e.printStackTrace();
 			} finally {
 				ConnectionUtil.close(st, connection);
@@ -125,16 +131,20 @@ public class CalcBillCtrl extends HttpServlet {
 
 		if (request.getParameter("Action").equals("Pay Bill")) {
 			System.out.println("inside pay bill");
-			CalcBill bill = new CalcBill();
-			bill.setCid(Integer.parseInt(request.getParameter("id")));
-			bill.setPayamt(Double.parseDouble(request.getParameter("bamt")));
-			bill.setStatus("PAID");
+			CalcBill paybill = new CalcBill();
+			paybill.setCid(Integer.parseInt(request.getParameter("id")));
+			paybill.setPayamt(Double.parseDouble(request.getParameter("bamt")));
+			paybill.setStatus("PAID");
 			CalcDAO calcDAO2 = new CalcDAO();
-			bill = calcDAO2.payAmount(bill);
+			paybill = calcDAO2.payAmount(paybill);
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("pay", bill);
+			httpSession.setAttribute("pay", PAYBILL);
 			request.setAttribute("msg", "Bill Paid Successfully!!!");
-			request.getRequestDispatcher("paybill.jsp").forward(request, response);
+			try {
+				request.getRequestDispatcher("paybill.jsp").forward(request, response);
+			} catch (ServletException | IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

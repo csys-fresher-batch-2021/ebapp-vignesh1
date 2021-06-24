@@ -2,8 +2,6 @@ package in.vignesh.servlet;
 
 import java.io.IOException;
 
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,14 +17,15 @@ import in.vignesh.model.UserBean;
 @WebServlet("/EditSevlet")
 public class EditSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+
 		System.out.println("inside edit section");
 		UserBean userBean = new UserBean();
 		userBean.setUserid(Integer.parseInt(request.getParameter("id")));
@@ -39,7 +38,10 @@ public class EditSevlet extends HttpServlet {
 		System.out.println("result is " + result);
 		String msg = "User edited successfully!!";
 		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("edituser.jsp").forward(request, response);
+		try {
+			request.getRequestDispatcher("edituser.jsp").forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
-	}
-
+}

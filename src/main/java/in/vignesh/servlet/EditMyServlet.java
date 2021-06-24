@@ -18,17 +18,8 @@ import in.vignesh.model.UserBean;
 public class EditMyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public EditMyServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("inside edit section");
 		UserBean userBean = new UserBean();
 		userBean.setUserid(Integer.parseInt(request.getParameter("id")));
@@ -42,7 +33,11 @@ public class EditMyServlet extends HttpServlet {
 		System.out.println("result is " + result);
 		String msg = "Profile edited successfully!!";
 		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("editprofileView.jsp").forward(request, response);
+		try {
+			request.getRequestDispatcher("editprofileView.jsp").forward(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

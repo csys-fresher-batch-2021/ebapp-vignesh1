@@ -147,7 +147,7 @@ h3{
                  if (count == 0) {
             %>
             
-                <b>Enter valid Record</b>
+                <strong>Enter valid Record</strong>
                 		       
              
             <%           

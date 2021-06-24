@@ -48,7 +48,7 @@ public class CalcDAO {
 
 	}
 
-	public boolean billExists(CalcBill bill) {
+	public boolean billExists(CalcBill exbill) {
 		Connection connection = null;
 		PreparedStatement pst = null;
 		boolean isExists = false;
@@ -56,29 +56,32 @@ public class CalcDAO {
 			connection = ConnectionUtil.getConnection();
 			String sql = "SELECT USERID FROM E_CALBILL WHERE USERID=? AND MONTH=? AND YEAR=?";
 			pst = connection.prepareStatement(sql);
-			pst.setInt(1, bill.getUserid());
-			pst.setString(2, bill.getMonth());
-			pst.setString(3, bill.getYear());
+			pst.setInt(1, exbill.getUserid());
+			pst.setString(2, exbill.getMonth());
+			pst.setString(3, exbill.getYear());
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
 				isExists = true;
 			}
 		} catch (SQLException e) {
 			throw new DBException("unable to find the bill");
+		} finally {
+			ConnectionUtil.close(pst, connection);
 		}
+
 		return isExists;
 	}
 
-	public CalcBill payAmount(CalcBill bill) {
+	public CalcBill payAmount(CalcBill paybill) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		try {
 			connection = ConnectionUtil.getConnection();
 			String sql = "UPDATE E_CALBILL SET AMTPAID=?,STATUS=? WHERE ID=?";
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setDouble(1, bill.getPayamt());
-			preparedStatement.setString(2, bill.getStatus());
-			preparedStatement.setInt(3, bill.getCid());
+			preparedStatement.setDouble(1, paybill.getPayamt());
+			preparedStatement.setString(2, paybill.getStatus());
+			preparedStatement.setInt(3, paybill.getCid());
 			int result = preparedStatement.executeUpdate();
 
 			if (result != 0) {
@@ -90,7 +93,7 @@ public class CalcDAO {
 		} finally {
 			ConnectionUtil.close(preparedStatement, connection);
 		}
-		return bill;
+		return paybill;
 	}
 
 	public static CalcBill getRecordById(int id) {

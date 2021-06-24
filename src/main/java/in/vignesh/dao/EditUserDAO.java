@@ -51,7 +51,6 @@ public class EditUserDAO {
 			preparedStatement.setString(2, userBean.getUseremail());
 			preparedStatement.setString(3, userBean.getUseraddress());
 			preparedStatement.setString(4, userBean.getUserphone());
-			preparedStatement.setInt(5, userBean.getUserid());
 			status = preparedStatement.executeUpdate();
 			System.out.println(status);
 			if (status != 0) {

@@ -38,8 +38,7 @@ public class LoginCtrl extends HttpServlet {
 	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
 		System.out.println("inside post");
 		String cusId = request.getParameter("customerid");
@@ -74,7 +73,7 @@ public class LoginCtrl extends HttpServlet {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 
 			}
-		} catch (SQLException e) {
+		} catch (SQLException | IOException | ServletException e) {
 			e.printStackTrace();
 		}
 	}

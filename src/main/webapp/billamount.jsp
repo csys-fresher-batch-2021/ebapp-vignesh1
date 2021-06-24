@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="in.vignesh.util.ConnectionUtil"%>
 <%@page import="java.sql.Statement"%>
@@ -23,34 +24,26 @@
   <input type="search" class="form-control rounded" placeholder="Search By Id" name="userid" >
 </form>
 <br>
-<form class="example" action="" style="margin:auto;max-width:300px; float:inherit;" >
 
-
-<strong><label style="color: red;">Zone Name</label></strong>
-  <input type="search" class="form-control rounded" placeholder="Search By Zone Name" name="zone" aria-label="Search"
-    aria-describedby="search-addon" />
-    <br>
-  
-</form>
 	<% 
 	String id=request.getParameter("userid");
-	String zone=request.getParameter("zone");
-	Connection con = ConnectionUtil.getConnection();
-	Statement statement=con.createStatement();
 String sql=null;
+PreparedStatement statement=null;
 if(id!=null )
 {
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND USERID='"+id+"'";
-}
-else if(zone!=null)
-{
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND ZONE='"+zone+"'";
-}
+	Connection con = ConnectionUtil.getConnection();
+    sql=	"SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND USERID=?";
+    statement=con.prepareStatement(sql);
+    }
+
+
 else
 {
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid'  ORDER BY ID DESC ";
+	Connection con = ConnectionUtil.getConnection();
+	sql="SELECT USERID,NAME,ZONE,UNIT,TAMT FROM E_CALBILL WHERE STATUS= 'Not Paid'  ORDER BY ID DESC ";
+    statement=con.prepareStatement(sql);
 }
-ResultSet resultSet=statement.executeQuery(sql);
+     ResultSet resultSet=statement.executeQuery();
 %>
 
 
