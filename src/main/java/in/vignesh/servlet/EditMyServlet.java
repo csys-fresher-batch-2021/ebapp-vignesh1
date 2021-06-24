@@ -21,21 +21,21 @@ public class EditMyServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("inside edit section");
-		UserBean userBean = new UserBean();
-		userBean.setUserid(Integer.parseInt(request.getParameter("id")));
-		userBean.setName(request.getParameter("uname"));
-		userBean.setUseremail(request.getParameter("email"));
-		userBean.setUseraddress(request.getParameter("address"));
-		userBean.setUserphone(request.getParameter("phone"));
-		userBean.setPassword(request.getParameter("password"));
-		EditUserDAO dao2 = new EditUserDAO();
-		int result = dao2.editMyProfile(userBean);
-		System.out.println("result is " + result);
-		String msg = "Profile edited successfully!!";
-		request.setAttribute("msg", msg);
 		try {
+			UserBean userBean = new UserBean();
+			userBean.setUserid(Integer.parseInt(request.getParameter("id")));
+			userBean.setName(request.getParameter("uname"));
+			userBean.setUseremail(request.getParameter("email"));
+			userBean.setUseraddress(request.getParameter("address"));
+			userBean.setUserphone(request.getParameter("phone"));
+			userBean.setPassword(request.getParameter("password"));
+			EditUserDAO dao2 = new EditUserDAO();
+			int result = dao2.editMyProfile(userBean);
+			System.out.println("result is " + result);
+			String msg = "Profile edited successfully!!";
+			request.setAttribute("msg", msg);
 			request.getRequestDispatcher("editprofileView.jsp").forward(request, response);
-		} catch (ServletException | IOException e) {
+		} catch (ServletException | IOException | NumberFormatException e) {
 			e.printStackTrace();
 		}
 	}

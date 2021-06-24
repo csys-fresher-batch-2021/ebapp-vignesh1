@@ -27,20 +27,20 @@ public class EditSevlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
 		System.out.println("inside edit section");
-		UserBean userBean = new UserBean();
-		userBean.setUserid(Integer.parseInt(request.getParameter("id")));
-		userBean.setUseremail(request.getParameter("email"));
-		userBean.setName(request.getParameter("uname"));
-		userBean.setUseraddress(request.getParameter("address"));
-		userBean.setUserphone(request.getParameter("phone"));
-		EditUserDAO dao2 = new EditUserDAO();
-		int result = dao2.editUser(userBean);
-		System.out.println("result is " + result);
-		String msg = "User edited successfully!!";
-		request.setAttribute("msg", msg);
 		try {
+			UserBean userBean = new UserBean();
+			userBean.setUserid(Integer.parseInt(request.getParameter("id")));
+			userBean.setUseremail(request.getParameter("email"));
+			userBean.setName(request.getParameter("uname"));
+			userBean.setUseraddress(request.getParameter("address"));
+			userBean.setUserphone(request.getParameter("phone"));
+			EditUserDAO dao2 = new EditUserDAO();
+			int result = dao2.editUser(userBean);
+			System.out.println("result is " + result);
+			String msg = "User edited successfully!!";
+			request.setAttribute("msg", msg);
 			request.getRequestDispatcher("edituser.jsp").forward(request, response);
-		} catch (ServletException | IOException e) {
+		} catch (ServletException | IOException | NumberFormatException e) {
 			e.printStackTrace();
 		}
 	}

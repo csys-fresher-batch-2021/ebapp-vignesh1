@@ -48,22 +48,22 @@ public class CalcBillCtrl extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 		if (request.getParameter("Action").equals("Calculate Bill")) {
-
-			CalcBill bill = new CalcBill();
-			bill.setUserid(Integer.parseInt(request.getParameter("userid")));
-			bill.setType(request.getParameter("type"));
-			bill.setUnitConsumed(Double.parseDouble(request.getParameter("unit")));
-			bill.setZoneName(request.getParameter("zonename"));
-			bill.setConsumernumber(request.getParameter("consumerno"));
-			bill.setMonth(request.getParameter("month"));
-			bill.setName(request.getParameter("name"));
-			bill.setCustomerid(request.getParameter("customerid"));
-			bill.setYear(request.getParameter("year"));
-			bill.setStatus("Not Paid");
-			bill.setDues(Double.parseDouble(request.getParameter("dues")));
-			LocalDate date = LocalDate.now();
-			String year = String.valueOf(date.getYear());
 			try {
+				CalcBill bill = new CalcBill();
+				bill.setUserid(Integer.parseInt(request.getParameter("userid")));
+				bill.setType(request.getParameter("type"));
+				bill.setUnitConsumed(Double.parseDouble(request.getParameter("unit")));
+				bill.setZoneName(request.getParameter("zonename"));
+				bill.setConsumernumber(request.getParameter("consumerno"));
+				bill.setMonth(request.getParameter("month"));
+				bill.setName(request.getParameter("name"));
+				bill.setCustomerid(request.getParameter("customerid"));
+				bill.setYear(request.getParameter("year"));
+				bill.setStatus("Not Paid");
+				bill.setDues(Double.parseDouble(request.getParameter("dues")));
+				LocalDate date = LocalDate.now();
+				String year = String.valueOf(date.getYear());
+
 				int calculateyear = bill.getYear().compareTo(year);
 				if (calculateyear < 0) {
 					String msg = "Enter Year correctly";
@@ -96,8 +96,8 @@ public class CalcBillCtrl extends HttpServlet {
 			Statement st = null;
 			connection = ConnectionUtil.getConnection();
 			System.out.println("inside search");
-			int id = Integer.parseInt(request.getParameter(("userid")));
 			try {
+				int id = Integer.parseInt(request.getParameter(("userid")));
 				connection = ConnectionUtil.getConnection();
 				st = connection.createStatement();
 				ArrayList list = null;
@@ -121,7 +121,7 @@ public class CalcBillCtrl extends HttpServlet {
 				RequestDispatcher view = request.getRequestDispatcher("CalculateBillView.jsp");
 				view.forward(request, response);
 
-			} catch (SQLException | ServletException | IOException e) {
+			} catch (SQLException | ServletException | IOException | NumberFormatException e) {
 				e.printStackTrace();
 			} finally {
 				ConnectionUtil.close(st, connection);
@@ -131,18 +131,19 @@ public class CalcBillCtrl extends HttpServlet {
 
 		if (request.getParameter("Action").equals("Pay Bill")) {
 			System.out.println("inside pay bill");
-			CalcBill paybill = new CalcBill();
-			paybill.setCid(Integer.parseInt(request.getParameter("id")));
-			paybill.setPayamt(Double.parseDouble(request.getParameter("bamt")));
-			paybill.setStatus("PAID");
-			CalcDAO calcDAO2 = new CalcDAO();
-			paybill = calcDAO2.payAmount(paybill);
-			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("pay", PAYBILL);
-			request.setAttribute("msg", "Bill Paid Successfully!!!");
 			try {
+				CalcBill paybill = new CalcBill();
+				paybill.setCid(Integer.parseInt(request.getParameter("id")));
+				paybill.setPayamt(Double.parseDouble(request.getParameter("bamt")));
+				paybill.setStatus("PAID");
+				CalcDAO calcDAO2 = new CalcDAO();
+				paybill = calcDAO2.payAmount(paybill);
+				HttpSession httpSession = request.getSession();
+				httpSession.setAttribute("pay", PAYBILL);
+				request.setAttribute("msg", "Bill Paid Successfully!!!");
+
 				request.getRequestDispatcher("paybill.jsp").forward(request, response);
-			} catch (ServletException | IOException e) {
+			} catch (ServletException | IOException | NumberFormatException e) {
 				e.printStackTrace();
 			}
 		}
