@@ -9,9 +9,6 @@ import in.vignesh.model.UserBean;
 import in.vignesh.util.ConnectionUtil;
 
 public class EditUserDAO {
-	private EditUserDAO() {
-
-	}
 
 	public int editUser(UserBean userBean) {
 		Connection con = null;

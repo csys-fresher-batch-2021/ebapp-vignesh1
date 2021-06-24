@@ -10,9 +10,6 @@ import in.vignesh.model.UserBean;
 import in.vignesh.util.ConnectionUtil;
 
 public class LoginDAO {
-	private LoginDAO() {
-
-	}
 
 	public String authenticateUser(UserBean bean) throws SQLException {
 		String customerId = bean.getCustomerId();

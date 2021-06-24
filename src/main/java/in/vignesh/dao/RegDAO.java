@@ -12,10 +12,6 @@ import in.vignesh.util.ConnectionUtil;
 
 public class RegDAO {
 
-	private RegDAO() {
-
-	}
-
 	public int addUser(UserBean bean) {
 		Connection con = null;
 		PreparedStatement preparedStatement = null;
