@@ -49,6 +49,7 @@ public class LoginCtrl extends HttpServlet {
 		LoginDao dao = new LoginDao();
 		try {
 			String result = dao.authenticateUser(bean);
+
 			System.out.println("result " + result);
 			if (result.equals("ADMIN_ROLE")) {
 				System.out.println("inside admin");
