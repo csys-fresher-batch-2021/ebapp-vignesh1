@@ -1,3 +1,5 @@
+<%@page import="java.util.Set"%>
+<%@page import="in.vignesh.model.Unit"%>
 <%@page import="in.vignesh.model.UnitPrice"%>
 <%@page import="in.vignesh.service.BillManager"%>
 <%@page import="java.util.List"%>
@@ -14,12 +16,11 @@
 <body>
 	<jsp:include page="header1.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h2>PerUnitPrice List</h2>
-
+	
 		<%
-		Map<String, List<UnitPrice>> map = BillManager.getList();
+		Map<String, List<Unit>> map = BillManager.getList();
 		for (String key : map.keySet()) {
-			List<UnitPrice> numberOfList = map.get(key);
+			List<Unit> numberOfList = map.get(key);
 		%>
 		<h3><%=key%></h3>
 		<table class="table table-bordered">
@@ -32,7 +33,7 @@
 			</thead>
 			<tbody>
 				<%
-				for (UnitPrice up : numberOfList) {
+				for (Unit up : numberOfList) {
 				%>
 				<tr>
 					<td><%=up.getMinUnit()%> - <%=up.getMaxUnit()%></td>
