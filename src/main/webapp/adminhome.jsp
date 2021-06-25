@@ -35,8 +35,9 @@ color: #D5F605;
     
 <%
 Connection con = ConnectionUtil.getConnection();
-String sql="SELECT * FROM E_USER WHERE ROLEID=1";
+String sql="SELECT * FROM E_USER WHERE ROLEID=?";
 PreparedStatement statement=con.prepareStatement(sql);
+statement.setInt(1, 1);
 ResultSet rs=statement.executeQuery();
 while(rs.next())
 {

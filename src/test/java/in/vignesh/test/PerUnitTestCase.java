@@ -1,11 +1,14 @@
 package in.vignesh.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import in.vignesh.service.BillManager;
+
 public class PerUnitTestCase {
-		@Test
+
+	@Test
 	public void test1() {
 		double units = 25;
 		String type = "Home";

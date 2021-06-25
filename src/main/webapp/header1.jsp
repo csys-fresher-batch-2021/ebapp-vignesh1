@@ -22,10 +22,7 @@ if(request.getSession(false).getAttribute("user")==null)
 
 	    <li class="nav-item">
 		<a class="nav-link" href="userhome.jsp">Home</a>
-		</li>
-		 <li class="nav-item">
-         <a class="nav-link"href="adduser.jsp">Register</a>
-       </li>
+		
 	    <li class="nav-item">
 		<a class="nav-link" href="viewprofile.jsp">ViewProfile</a>
 		</li>

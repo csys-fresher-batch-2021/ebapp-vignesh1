@@ -28,8 +28,9 @@ background-color: #E5EFAC;
 		<%
 		String user = (String) session.getAttribute("user");
 		Connection con = ConnectionUtil.getConnection();
-		String sql = "SELECT * FROM E_USER WHERE CUSTOMERID='" + user + "'";
+		String sql = "SELECT * FROM E_USER WHERE CUSTOMERID=?";
 		PreparedStatement statement = con.prepareStatement(sql);
+	    statement.setString(1, user);
 		ResultSet rs = statement.executeQuery();
 		while (rs.next()) {
 		%>

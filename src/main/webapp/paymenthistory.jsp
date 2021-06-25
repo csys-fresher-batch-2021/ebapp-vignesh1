@@ -4,7 +4,6 @@
 <%@page import="in.vignesh.util.ConnectionUtil"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="in.vignesh.model.UserBean"%>
-<%@page import="in.vignesh.model.UnitPrice"%>
 <%@page import="in.vignesh.model.Unit"%>
 <%@page import="in.vignesh.service.BillManager"%>
 <%@page import="java.util.List"%>
@@ -40,9 +39,11 @@ String user=(String)session.getAttribute("user");
 UserBean bean=new UserBean();
 bean.getUserid();
 System.out.print(bean.getUserid());
-String sql="SELECT * FROM E_CALBILL where CUSTOMERID='"+user+"' AND STATUS='PAID'";
+String sql="SELECT * FROM E_CALBILL where CUSTOMERID=? AND STATUS=?";
 Connection con = ConnectionUtil.getConnection();
 PreparedStatement statement=con.prepareStatement(sql);
+statement.setString(1, user);
+statement.setString(2, "PAID");
 ResultSet resultSet=statement.executeQuery();
 while(resultSet.next())
 {

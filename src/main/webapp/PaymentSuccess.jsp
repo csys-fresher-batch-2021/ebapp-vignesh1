@@ -8,14 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="loginheader.jsp"></jsp:include>
+	<jsp:include page="header1.jsp"></jsp:include>
 	<main class="container-fluid">
 	
 	
 
-	 <h3>Registered Successfully!</h3>
 	 <br>
-	 <span style="color: #00e676; font-style: inherit;"><%=(request.getAttribute("regmsg") == null) ? "" : request.getAttribute("regmsg")%></span>
+	 <span style="color: #00e676; font-style: inherit; 	font-size: 30px;"><%=(request.getAttribute("msg") == null) ? "" : request.getAttribute("msg")%></span>
+	 
 	 <br>
 	 
 	

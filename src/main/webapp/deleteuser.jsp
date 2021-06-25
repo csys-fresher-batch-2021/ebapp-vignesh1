@@ -21,8 +21,10 @@ if (id != null) {
 	int userid = Integer.parseInt(id);
 
 	Connection con = ConnectionUtil.getConnection();
-	String sql = "DELETE FROM E_USER WHERE USERID=" + userid;
+	String sql = "DELETE FROM E_USER WHERE USERID=?";
 	PreparedStatement ps = con.prepareStatement(sql);
+	ps.setInt(1, userid);
+
 	int i = ps.executeUpdate();
 	if (i > 0) {
 %>

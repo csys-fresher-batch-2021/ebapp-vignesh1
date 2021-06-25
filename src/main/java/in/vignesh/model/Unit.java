@@ -1,13 +1,12 @@
 package in.vignesh.model;
+
 public class Unit {
-	
 
 	private String type;
 	private double minUnit;
 	private double maxUnit;
 	private double price;
-	
-     
+
 	public String getType() {
 		return type;
 	}
@@ -26,7 +25,6 @@ public class Unit {
 
 	// Used for initializing values
 	public Unit(double minUnit, double maxUnit, double price) {
-//		this.type=type;
 		this.minUnit = minUnit;
 		this.maxUnit = maxUnit;
 		this.price = price;
@@ -43,7 +41,5 @@ public class Unit {
 	public String toString() {
 		return "Unit [type=" + type + ", minUnit=" + minUnit + ", maxUnit=" + maxUnit + ", price=" + price + "]";
 	}
-	
 
-	
 }

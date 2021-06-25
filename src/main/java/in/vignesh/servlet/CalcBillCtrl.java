@@ -142,7 +142,7 @@ public class CalcBillCtrl extends HttpServlet {
 				httpSession.setAttribute("pay", PAYBILL);
 				request.setAttribute("msg", "Bill Paid Successfully!!!");
 
-				request.getRequestDispatcher("paybill.jsp").forward(request, response);
+				request.getRequestDispatcher("PaymentSuccess.jsp").forward(request, response);
 			} catch (ServletException | IOException | NumberFormatException e) {
 				e.printStackTrace();
 			}

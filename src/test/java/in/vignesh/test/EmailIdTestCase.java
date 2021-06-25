@@ -9,22 +9,22 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import in.vignesh.validator.UserValidation;
 
-class NameTestCaseTest {
-
+class EmailIdTestCase {
 	@Order(1)
 	@ParameterizedTest
-	@CsvSource({ "'', vignesh@, 1234, vignes1" })
-	void invalidTestCase(String name) {
-		boolean isValid = UserValidation.isValidName(name);
+	@CsvSource({ "emailgmail.com,12334566,vignesh" })
+	void invalidTestCase(String email) {
+		boolean isValid = UserValidation.isValidEmail(email);
 		assertFalse(isValid);
 	}
 
 	@Order(2)
 	@ParameterizedTest
-	@CsvSource({ "vignesh,VIGNESH kannan" })
+	@CsvSource({ "email@gmail.com", "email12@gmail.com" })
 
-	void validTestCase(String name) {
-		boolean valid = UserValidation.isValidName(name);
+	void validTestCase(String email) {
+		boolean valid = UserValidation.isValidEmail(email);
 		assertTrue(valid);
 	}
+
 }
