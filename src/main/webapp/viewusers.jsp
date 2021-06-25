@@ -41,14 +41,18 @@
 	if(id!=null )
 	{
 		con = ConnectionUtil.getConnection();
-		sql="SELECT * FROM E_USER WHERE USERID='"+id+"'";
+		sql="SELECT * FROM E_USER WHERE USERID=?";
 	    statement=con.prepareStatement(sql);
+	    statement.setString(1, id);
+		
 	}
 	else
 	{
 		 con = ConnectionUtil.getConnection();
-			sql="SELECT * from E_USER WHERE ROLEID=2";
-	    statement=con.prepareStatement(sql);
+			sql="SELECT * from E_USER WHERE ROLEID=?";
+	        statement=con.prepareStatement(sql);
+	        statement.setInt(1, 2);
+
 	}
 	ResultSet rs=statement.executeQuery();
 

@@ -32,7 +32,7 @@ PreparedStatement statement=null;
 if(id!=null )
 {
 	Connection con = ConnectionUtil.getConnection();
-    sql=	"SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND USERID=?";
+	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND USERID='"+id+"'";
     statement=con.prepareStatement(sql);
     }
 

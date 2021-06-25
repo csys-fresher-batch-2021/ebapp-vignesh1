@@ -50,8 +50,9 @@ System.out.print("ID2 IS "+id2);
  <%
 double result=0;
      Connection con = ConnectionUtil.getConnection();
-     String sql="SELECT*FROM E_CALBILL where id='"+id2+"'";
+     String sql="SELECT*FROM E_CALBILL where id=?";
      PreparedStatement statement=con.prepareStatement(sql);
+     statement.setInt(1, id2);
     ResultSet resultSet=statement.executeQuery();
     while(resultSet.next())
     {

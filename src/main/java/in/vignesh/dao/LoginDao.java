@@ -20,9 +20,10 @@ public class LoginDao {
 		ResultSet resultSet = null;
 		try {
 			con = ConnectionUtil.getConnection();
-			String sql = "SELECT*FROM E_USER  E_USER WHERE CUSTOMERID='" + customerId + "' AND PASSWORD='" + password
-					+ "'";
+			String sql = "SELECT*FROM E_USER  E_USER WHERE CUSTOMERID=? AND PASSWORD=?";
 			statement = con.prepareStatement(sql);
+			statement.setString(1, customerId);
+			statement.setString(2, password);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				String custId = resultSet.getString("customerId");

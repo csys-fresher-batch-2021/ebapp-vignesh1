@@ -24,8 +24,9 @@ Connection connection = null;
 PreparedStatement pst = null;
 System.out.println(user);
 connection  = ConnectionUtil.getConnection();
-String sql="SELECT ID,USERID,NAME,UNIT,YEAR,MONTH,TAMT,DUES,STATUS FROM E_CALBILL  WHERE CUSTOMERID='"+user+"'";
+String sql="SELECT ID,USERID,NAME,UNIT,YEAR,MONTH,TAMT,DUES,STATUS FROM E_CALBILL  WHERE CUSTOMERID=?";
 pst=connection.prepareStatement(sql);
+pst.setString(1, user);
 ResultSet resultSet=pst.executeQuery();
 %>
 
