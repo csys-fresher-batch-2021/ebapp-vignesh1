@@ -11,11 +11,46 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-h3{
-	text-align: center;
+p{
 	color: #F1043A;
 	}
+
+.marquee p {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ -moz-animation: scroll-left 15s linear infinite;
+ -webkit-animation: scroll-left 15s linear infinite;
+ animation: scroll-left 15s linear infinite;
+}
+@-moz-keyframes scroll-left {
+ 0%   { -moz-transform: translateX(100%); }
+ 100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scroll-left {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scroll-left {
+ 0%   { 
+ -moz-transform: translateX(100%); 
+ -webkit-transform: translateX(100%);
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -moz-transform: translateX(-100%); 
+ -webkit-transform: translateX(-100%);
+ transform: translateX(-100%); 
+ }
+}
 </style>
+
 </head>
 <body>
 	<jsp:include page="header1.jsp"></jsp:include>
@@ -23,10 +58,11 @@ h3{
 
 
 <br><br><br><br><br><br><br>
-<MARQUEE SCROLLAMOUNT=10>
-<h3>WELCOME AND PAY BILLS HERE!!!</h3>
-</MARQUEE>>
 
+<div class="marquee">
+<p>WELCOME AND PAY BILLS HERE!! </p>
+</div>
+	
 </main>
 </body>
 </html>
