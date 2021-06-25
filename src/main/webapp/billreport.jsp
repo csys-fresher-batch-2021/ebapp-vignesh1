@@ -48,13 +48,13 @@ PreparedStatement statement=null;
 if(id!=null )
 {
 	con = ConnectionUtil.getConnection();
-    sql=	"SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid' AND USERID=?";
+    sql=	"SELECT * FROM E_CALBILL WHERE STATUS= 'PAID' AND USERID=?";
     statement=con.prepareStatement(sql);
 }
 else
 {
 	 con = ConnectionUtil.getConnection();
-	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'Not Paid'  ORDER BY ID DESC ";
+	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'PAID'  ORDER BY ID DESC ";
     statement=con.prepareStatement(sql);
 }
 ResultSet resultSet=statement.executeQuery();

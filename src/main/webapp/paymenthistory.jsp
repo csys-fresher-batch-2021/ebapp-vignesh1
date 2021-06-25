@@ -4,7 +4,6 @@
 <%@page import="in.vignesh.util.ConnectionUtil"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="in.vignesh.model.UserBean"%>
-<%@page import="in.vignesh.model.UnitPrice"%>
 <%@page import="in.vignesh.model.Unit"%>
 <%@page import="in.vignesh.service.BillManager"%>
 <%@page import="java.util.List"%>

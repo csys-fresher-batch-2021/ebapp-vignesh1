@@ -25,28 +25,33 @@
 			<thead class="thead-dark">
 		
 	<tr>
-	<th>User Id</th>
-	<th>Name</th>
-	<th>Email</th>
-	<th>Phone no</th>
-	<th>Consumer no</th>
-	<th>Address</th>
-	<th>Action</th></tr>
+	<th scope="col">User Id</th>
+	<th scope="col">Name</th>
+	<th scope="col">Email</th>
+	<th scope="col">Phone no</th>
+	<th scope="col">Consumer no</th>
+	<th scope="col">Address</th>
+	<th scope="col">Action</th></tr>
 	<tr>
 	<%
-Connection con = ConnectionUtil.getConnection();
-Statement statement=con.createStatement();
-String id=request.getParameter("userId");
-String sql=null;
-if(id!=null)
-{
-	sql="SELECT * FROM E_USER WHERE USERID='"+id+"'";
-}
-else
-{
-	sql="SELECT * from E_USER WHERE ROLEID=2";
-}
-ResultSet rs=statement.executeQuery(sql);
+	String id=request.getParameter("userId");
+	Connection con = ConnectionUtil.getConnection();
+	String sql=null;
+	PreparedStatement statement=null;
+	if(id!=null )
+	{
+		con = ConnectionUtil.getConnection();
+		sql="SELECT * FROM E_USER WHERE USERID='"+id+"'";
+	    statement=con.prepareStatement(sql);
+	}
+	else
+	{
+		 con = ConnectionUtil.getConnection();
+			sql="SELECT * from E_USER WHERE ROLEID=2";
+	    statement=con.prepareStatement(sql);
+	}
+	ResultSet rs=statement.executeQuery();
+
 while(rs.next())
 {
 	%>

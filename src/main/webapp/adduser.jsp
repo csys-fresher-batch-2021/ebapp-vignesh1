@@ -11,7 +11,7 @@
 <body>
 <div class="reg">
 
-		<jsp:include page="header1.jsp"></jsp:include>
+		<jsp:include page="loginheader.jsp"></jsp:include>
 		<main class="container-fluid">
 
 			<%
