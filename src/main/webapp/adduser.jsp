@@ -51,7 +51,7 @@ if(session.getAttribute("ERROR")!=null)
 	                 <span style="color: red; font-style: inherit;"><%=(request.getAttribute("mmsg") == null) ? "" : request.getAttribute("mmsg")%></span>
 	
 	                 <label for="ConsumerNumber"><strong>Consumer Number:</strong></label><br>
-	                 <input type="number" name="ConsumerNumber" placeholder="Enter your consumerNo" required><br>
+	                 <input type="number" name="ConsumerNumber" placeholder="Eg:033418033424" required><br>
 	                 <span style="color: red; font-style: inherit;"><%=(request.getAttribute("cnmsg") == null) ? "" : request.getAttribute("cnmsg")%></span>
 	
 	                 <label for="address"><strong>Address:</strong></label><br>
@@ -65,10 +65,10 @@ if(session.getAttribute("ERROR")!=null)
 	                 
 	  
                    	<label for="password"><strong>Set Password:</strong></label><br>
-	                <input type="password" name="password" placeholder="Enter your password" required><br>
+	                <input type="password" name="password" placeholder="Example@123" required><br>
 	
   	                 <label for="confirmpassword"><strong>Confirm password:</strong></label><br>
-	                 <input type="password" name="confirmpassword" placeholder="Confirm your password" required><br>
+	                 <input type="password" name="confirmpassword" placeholder="Example@123" required><br>
 	           		<span style="color: red; font-style: inherit;"><%=(request.getAttribute("pmsg") == null) ? "" : request.getAttribute("pmsg")%></span>
 	                <span style="color: red; font-style: inherit;"><%=(request.getAttribute("umsg") == null) ? "" : request.getAttribute("umsg")%></span>
 	                 
