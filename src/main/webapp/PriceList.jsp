@@ -1,6 +1,5 @@
 <%@page import="java.util.Set"%>
 <%@page import="in.vignesh.model.Unit"%>
-<%@page import="in.vignesh.model.UnitPrice"%>
 <%@page import="in.vignesh.service.BillManager"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Map"%>

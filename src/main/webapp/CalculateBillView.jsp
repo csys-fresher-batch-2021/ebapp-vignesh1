@@ -71,27 +71,27 @@ h3{
 							
 						
 								<label for="">UserId</label><br>
-								<input type="text" value="<%=pList.get(0) %>" name="userid" disabled><br>
+								<input type="text" value="<%=pList.get(0) %>" name="userid" ><br>
 							
 								
 								<label for="name">Name</label><br> <input
 									type="text" id="name"
-							       name="name" value="<%=pList.get(1) %>"disabled><br>
+							       name="name" value="<%=pList.get(1) %>"><br>
 							      
 							      <label for="consumerno">Consumer No</label><br> <input
 									type="text"  id="consumerno"
-							     name="consumerno" value="<%=pList.get(2) %>"disabled><br>
+							     name="consumerno" value="<%=pList.get(2) %>"><br>
 							      
 							      <label for="customerid">Customer id</label><br> <input
 									type="text"  id="exampleInputPassword1"
-							       name="customerid" value="<%=pList.get(3) %>"disabled><br>
+							       name="customerid" value="<%=pList.get(3) %>"><br>
 							        
 							        
 							        
 							
 								<label for="zonename">Zone name</label><br> <input
 									type="text"  id="zonename"
-									 name="zonename" value="<%=pList.get(4) %>"disabled><br>
+									 name="zonename" value="<%=pList.get(4) %>"><br>
 									
 							     <label for="type">Type</label><br>
 									
