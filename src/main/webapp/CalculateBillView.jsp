@@ -71,27 +71,27 @@ h3{
 							
 						
 								<label for="">UserId</label><br>
-								<input type="text" value="<%=pList.get(0) %>" name="userid" ><br>
+								<input type="text" value="<%=pList.get(0) %>" name="userid" disabled><br>
 							
 								
 								<label for="name">Name</label><br> <input
 									type="text" id="name"
-							      placeholder="Enter name" name="name" value="<%=pList.get(1) %>"><br>
+							       name="name" value="<%=pList.get(1) %>"disabled><br>
 							      
 							      <label for="consumerno">Consumer No</label><br> <input
 									type="text"  id="consumerno"
-							      placeholder="Enter Consumer No" name="consumerno" value="<%=pList.get(2) %>"><br>
+							     name="consumerno" value="<%=pList.get(2) %>"disabled><br>
 							      
 							      <label for="customerid">Customer id</label><br> <input
 									type="text"  id="exampleInputPassword1"
-							      placeholder="Enter customer Id" name="customerid" value="<%=pList.get(3) %>"><br>
+							       name="customerid" value="<%=pList.get(3) %>"disabled><br>
 							        
 							        
 							        
 							
 								<label for="zonename">Zone name</label><br> <input
 									type="text"  id="zonename"
-									placeholder="Enter Zone name" name="zonename" value="<%=pList.get(4) %>"><br>
+									 name="zonename" value="<%=pList.get(4) %>"disabled><br>
 									
 							     <label for="type">Type</label><br>
 									
@@ -105,12 +105,12 @@ h3{
 						
 								<label for="unitconsumed">Unit Consumed</label> <br><input
 									type="number" id="unitconsumed"
-									placeholder="Enter Unit" name="unit" pattern="\d*" id="unitconsumed" required><br>
+									placeholder="Enter Unit" name="unit" pattern="\d*" id="unitconsumed" min="1.0" max="1000.0" step="0.01" required><br>
 						
 						
-								<label for="dues">Any Dues</label> <br><input
+								<label for="dues">Fine/Dues</label> <br><input
 									type="text" 
-									placeholder="Enter Dues" name="dues" pattern="\d*" required><br>
+									placeholder="Enter Fine/Dues" name="dues" pattern="\d*" required><br>
 							
 								<label for="year">Year</label><br>
 									<input
