@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registered</title>
 </head>
 <body>
 	<jsp:include page="loginheader.jsp"></jsp:include>

@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Edit List</title>
+<title>Edit profile</title>
 
 </head>
 <body>

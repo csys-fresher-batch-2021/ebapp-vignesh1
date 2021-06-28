@@ -1,3 +1,4 @@
+
 <%@page import="in.vignesh.dao.RegDAO"%>
 <%@page import="in.vignesh.model.UserBean"%>
 <%@page import="in.vignesh.util.ConnectionUtil"%>
@@ -12,7 +13,7 @@
 
 </head>
 <body>
-	<jsp:include page="header1.jsp"></jsp:include>
+	<jsp:include page="header2.jsp"></jsp:include>
 	<main class="container-fluid">
 
 	<%
@@ -42,6 +43,7 @@
 									type="text" class="form-control" id="phone"
 									placeholder="Another input" name="phone"
 									value="<%=bean.getUserphone()%>">
+									
 						
 								<label for="address">Address</label> <input
 									type="text" class="form-control" id="address"

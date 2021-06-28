@@ -7,11 +7,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>welcome page</title>
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <style>
 body {
-	background-image: url("D:/EB/ebapp-vignesh1/src/main/webapp/image/save-energy.jpg");
+	background-image: url("https://sowter.net/wp-content/uploads/2021/01/Ways-to-Save-Energy-this-Summer.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }

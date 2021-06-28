@@ -32,6 +32,8 @@
 				<tr>
 					<th scope="col">USERID</th>
 					<th scope="col">NAME</th>
+					<th scope="col">MONTH</th>
+					<th scope="col">YEAR</th>	
 					<th scope="col">UNIT</th>
 					<th scope="col">Bill Amount</th>
 					<th scope="col">Amount Paid</th>
@@ -41,7 +43,6 @@
 			</thead>
 	<% 
 	String id=request.getParameter("userid");
-	
 Connection con = ConnectionUtil.getConnection();
 String sql=null;
 PreparedStatement statement=null;
@@ -50,6 +51,7 @@ if(id!=null )
 	con = ConnectionUtil.getConnection();
 	sql="SELECT * FROM E_CALBILL WHERE STATUS= 'PAID' AND USERID='"+id+"'";
     statement=con.prepareStatement(sql);
+
 
 
 }
@@ -68,6 +70,9 @@ while(resultSet.next())
 	<tr>
 	<td><%=resultSet.getInt("USERID") %></td>
 	<td><%=resultSet.getString("NAME") %></td>
+	<td><%=resultSet.getString("MONTH") %></td>
+	<td><%=resultSet.getString("YEAR") %></td>
+	
 
 	<td><%=resultSet.getDouble("UNIT") %></td>
 

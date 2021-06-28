@@ -13,7 +13,7 @@ public class ConnectionUtil {
 	public static Connection getConnection() {
 		Connection connection = null;
 		String driverClass = "org.postgresql.Driver";
-		String url = "jdbc:postgresql://localhost/EB_DB";
+		String url = "jdbc:postgresql://localhost/Eb_Bill";
 		String username = "postgres";
 		String password = "viki75300";
 		try {

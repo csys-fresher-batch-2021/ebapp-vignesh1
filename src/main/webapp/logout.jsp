@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>UserLogin</title>
+<title>logout</title>
 <link rel="stylesheet" href="assets/css/style1.css">
 
 </head>

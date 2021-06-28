@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>calculation</title>
+<title>billAmount</title>
 <style>
 .rs {
 	text-align: center;

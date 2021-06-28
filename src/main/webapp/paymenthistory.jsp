@@ -56,7 +56,7 @@ while(resultSet.next())
 	<td><%=resultSet.getString("MONTH") %></td>
 	<td><%=resultSet.getString("YEAR") %></td>	
 	<td><%=resultSet.getDouble("AMTPAID") %></td>
-	<td><%=resultSet.getTimestamp("MODIFIED") %></td>
+	<td><%=resultSet.getTimestamp("DATEANDTIME") %></td>
 
 
 

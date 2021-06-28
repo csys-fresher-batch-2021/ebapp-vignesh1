@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>User List</title>
+<title>view user</title>
 
 </head>
 <body>
@@ -41,17 +41,15 @@
 	if(id!=null )
 	{
 		con = ConnectionUtil.getConnection();
-		sql="SELECT * FROM E_USER WHERE USERID=?";
+		sql="SELECT * FROM E_USER WHERE USERID='"+id+"'";
 	    statement=con.prepareStatement(sql);
-	    statement.setString(1, id);
 		
 	}
 	else
 	{
 		 con = ConnectionUtil.getConnection();
-			sql="SELECT * from E_USER WHERE ROLEID=?";
+			sql="SELECT * from E_USER WHERE ROLEID=2";
 	        statement=con.prepareStatement(sql);
-	        statement.setInt(1, 2);
 
 	}
 	ResultSet rs=statement.executeQuery();
@@ -59,12 +57,12 @@
 while(rs.next())
 {
 	%>
-	<td><%=rs.getInt(1) %></td>
-	<td><%=rs.getString(2) %></td>
-	<td><%=rs.getString(3) %></td>
-	<td><%=rs.getString(4) %></td>
-	<td><%=rs.getString(5) %></td>
-	<td><%=rs.getString(6) %></td>
+	<td><%=rs.getInt("USERID") %></td>
+	<td><%=rs.getString("NAME") %></td>
+	<td><%=rs.getString("USEREMAIL") %></td>
+	<td><%=rs.getString("USERPHONE") %></td>
+	<td><%=rs.getString("CONSUMERNO") %></td>
+	<td><%=rs.getString("USERADDRESS") %></td>
 	<td><a  href="edituser.jsp?id=<%=rs.getInt(1)%>" class="btn btn-success" >Edit</a>
 	<a  href="deleteuser.jsp?id=<%=rs.getInt(1)%>" class="btn btn-danger">Delete</a></td>
 	</tr>

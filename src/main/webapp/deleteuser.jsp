@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>AdminLogin</title>
+<title>delete user</title>
 </head>
 <body>
 

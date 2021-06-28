@@ -35,7 +35,6 @@ ResultSet resultSet=pst.executeQuery();
 			<caption></caption>
 			<thead class="thead-dark">
 				<tr>
-				    <th scope="col">ID</th>
 					<th scope="col">USERID</th>
 					<th scope="col">NAME</th>
 					<th scope="col">UNIT</th>
@@ -57,7 +56,6 @@ while(resultSet.next())
 
 		<tbody>
 	<tr>
-	<td><%=resultSet.getInt("ID") %></td>
 	<td><%=resultSet.getInt("USERID") %></td>
 	<td><%=resultSet.getString("NAME") %></td>
 	<td><%=resultSet.getDouble("UNIT") %></td>

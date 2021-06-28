@@ -40,7 +40,7 @@ if(id!=null )
 else
 {
 	Connection con = ConnectionUtil.getConnection();
-	sql="SELECT USERID,NAME,ZONE,UNIT,TAMT FROM E_CALBILL WHERE STATUS= 'Not Paid'  ORDER BY ID DESC ";
+	sql="SELECT USERID,NAME,ZONE,MONTH,YEAR,UNIT,TAMT FROM E_CALBILL WHERE STATUS= 'Not Paid'  ORDER BY ID DESC ";
     statement=con.prepareStatement(sql);
 }
      ResultSet resultSet=statement.executeQuery();
@@ -56,6 +56,8 @@ else
 					<th scope="col">USER ID</th>
 				   <th scope="col">NAME</th>
 				   <th scope="col">ZONE</th>
+				   <th scope="col">MONTH</th>
+					<th scope="col">YEAR</th>	
 				 <th scope="col">CONSUMED UNIT</th>
 				<th scope="col">BILL AMOUNT</th>
 				</tr>
@@ -70,6 +72,9 @@ else
 	
 	<td><%=resultSet.getString("NAME") %></td>
 	<td><%=resultSet.getString("ZONE") %></td>	
+		<td><%=resultSet.getString("MONTH") %></td>
+	<td><%=resultSet.getString("YEAR") %></td>
+	
 		<td><%=resultSet.getDouble("UNIT") %></td>
 	
 	<td><%=resultSet.getDouble("TAMT") %></td>

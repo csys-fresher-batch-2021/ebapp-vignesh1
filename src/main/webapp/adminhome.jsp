@@ -45,10 +45,10 @@ while(rs.next())
 	
 	
 	<table>
-	<tr ><td>Name:</td><td><%=rs.getString(2) %></td></tr>
-	<tr><td>Email:</td><td><%=rs.getString(3) %></td></tr>
-	<tr><td>Contact:</td><td><%=rs.getString(4) %></td></tr>
-	<tr><td>Address:</td><td><%=rs.getString(6) %></td></tr>
+	<tr ><td>Name:</td><td><%=rs.getString("NAME") %></td></tr>
+	<tr><td>Email:</td><td><%=rs.getString("USEREMAIL") %></td></tr>
+	<tr><td>Contact:</td><td><%=rs.getString("USERPHONE") %></td></tr>
+	<tr><td>Address:</td><td><%=rs.getString("USERADDRESS") %></td></tr>
 	</table> 
 	
 

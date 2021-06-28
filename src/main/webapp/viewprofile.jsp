@@ -42,19 +42,19 @@ background-color: #E5EFAC;
 		<table>
 			<tr>
 				<td>Name:</td>
-				<td><%=rs.getString(2)%></td>
+				<td><%=rs.getString("NAME")%></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><%=rs.getString(3)%></td>
+				<td><%=rs.getString("USEREMAIL")%></td>
 			</tr>
 			<tr>
 				<td>Contact:</td>
-				<td><%=rs.getString(4)%></td>
+				<td><%=rs.getString("USERPHONE")%></td>
 			</tr>
 			<tr>
 				<td>Address:</td>
-				<td><%=rs.getString(6)%></td>
+				<td><%=rs.getString("USERADDRESS")%></td>
 			</tr>
 			
 		</table>

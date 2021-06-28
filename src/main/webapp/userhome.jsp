@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>user home page</title>
+<title>user home</title>
 <style>
 body {
 	background-image: url("https://www.planete-energies.com/sites/default/files/styles/media_full_width_940px/public/thumbnails/image/477399765_0.jpg?itok=b002NPuR");
@@ -57,7 +57,7 @@ p{
 	<main class="container-fluid">
 
 
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 
 <div class="marquee">
 <p>WELCOME AND PAY BILLS HERE!! </p>
