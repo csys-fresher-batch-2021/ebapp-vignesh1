@@ -63,24 +63,23 @@ public class CalcBillCtrl extends HttpServlet {
 				bill.setDues(Double.parseDouble(request.getParameter("dues")));
 				LocalDate date = LocalDate.now();
 				String year = String.valueOf(date.getYear());
-
-				int calculateyear = bill.getYear().compareTo(year);
-				if (calculateyear < 0) {
-					String msg = "Enter Year correctly";
-					request.setAttribute("msg", msg);
-					request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
-				}
 				CalcDAO calcDAO = new CalcDAO();
+				if (bill.getYear().equals(year)) {
+					if (!calcDAO.billExists(bill)) {
+						calcDAO.calculateBill(bill);
+						HttpSession httpSession = request.getSession();
+						httpSession.setAttribute("bill", BILL);
+						String msg = "Bill Calculated";
+						request.setAttribute("msg", msg);
+						request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
 
-				if (!calcDAO.billExists(bill)) {
-					calcDAO.calculateBill(bill);
-					HttpSession httpSession = request.getSession();
-					httpSession.setAttribute("bill", BILL);
-					String msg = "Bill Calculated";
-					request.setAttribute("msg", msg);
-					request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
+					} else {
+						String msg = "Bill  Already Calculated";
+						request.setAttribute("msg", msg);
+						request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
+					}
 				} else {
-					String msg = "Bill  Already Calculated";
+					String msg = "Enter Year correctly";
 					request.setAttribute("msg", msg);
 					request.getRequestDispatcher("CalculateBillView.jsp").forward(request, response);
 				}
