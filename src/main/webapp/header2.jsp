@@ -18,11 +18,7 @@ if(request.getSession(false).getAttribute("admin")==null)
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavId">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-    <li class="nav-item">
-  <a class="nav-link" href="adminhome.jsp">Home</a>
-  </li>
-     
+   
       <li class="nav-item">
   <a class="nav-link" href="viewusers.jsp">ViewUsers</a>
   </li>
@@ -35,10 +31,11 @@ if(request.getSession(false).getAttribute("admin")==null)
       <li class="nav-item">
   <a class="nav-link" href="billreport.jsp">BillReport</a>
   </li>
+</ul>
+<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 
-
-   <li class="nav-item active" style=color:yellow>
-  <a >Welcome<%=session.getAttribute("admin") %>
+   <li class="nav-item active" >
+  <a class="nav-link" href="adminhome.jsp" style=color:yellow; >Welcome <%=session.getAttribute("admin") %>
   </a>  
   </li> 
   <li class="nav-item active">

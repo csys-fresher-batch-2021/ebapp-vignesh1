@@ -27,6 +27,7 @@
 		<div class="rs">
 
 			<%
+			String type= request.getParameter("type");
 			Double totalBillAmount = Double.parseDouble(request.getParameter("totalBillAmount"));
 			%>
 			<table class="table table-bordered">
@@ -34,7 +35,7 @@
 				<thead class="table-primary">
 					<tr>
 
-						<th scope="col">Your Total Bill Amount</th>
+						<th scope="col">Your Total Bill Amount for <%=type %></th>
 
 
 					</tr>
@@ -56,10 +57,10 @@
 
 		<%
 		Map<String, List<Unit>> map = BillManager.getList();
-		for (String key : map.keySet()) {
-			List<Unit> numberOfList = map.get(key);
+		//for (String key : map.keySet()) {
+			List<Unit> numberOfList = map.get(type);
 		%>
-		<h5><%=key%></h5>
+		<h5><%=type%></h5>
 		<table border=1>
 			<caption></caption>
 			<thead class="thead-dark">
@@ -84,7 +85,7 @@
 		</table>
 		
 		<%
-		}
+		//}
 		%>
 
 		

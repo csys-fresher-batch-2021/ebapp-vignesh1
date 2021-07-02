@@ -25,7 +25,7 @@ public class GenerateBill extends HttpServlet {
 			String type = request.getParameter("type");
 			double total = TotalBill.getTotalBill(type, units);
 
-			response.sendRedirect("result.jsp?totalBillAmount=" + total);
+			response.sendRedirect("result.jsp?type=" + type + "&totalBillAmount=" + total);
 
 		} catch (NumberFormatException | IOException e) {
 			e.printStackTrace();

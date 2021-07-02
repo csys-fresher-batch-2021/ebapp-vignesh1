@@ -1,3 +1,4 @@
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
@@ -24,8 +25,14 @@
 	
 	border-radius: 25px;
 }
-
+.id {
+		text-align: center;
+	}
 h3{
+	text-align: center;
+
+}
+p{
 	text-align: center;
 
 }
@@ -33,11 +40,10 @@ h3{
 </head>
 
 <body>
-
 <jsp:include page="header2.jsp"></jsp:include>
 	<main class="container-fluid">
 					<h3><strong>Enter Bill Information</strong></h3>
-				        	    <div class="cal">
+				        	    <div class="id">
 					
 							
 					
@@ -51,6 +57,8 @@ h3{
 								 <input  type="submit" name="Action" value="Search" class="btn btn-info"> <br>
 								</form>	
 								<br>
+								</div>
+								
 								
 	
 							<%
@@ -65,6 +73,7 @@ h3{
 			                        ArrayList pList = (ArrayList) itr.next();
                         
             %>
+            				        	    <div class="cal">
             
 
 							<form action="CalcBillCtrl" method="post" >
@@ -147,7 +156,7 @@ h3{
                  if (count == 0) {
             %>
             
-                <strong>Enter valid Record</strong>
+                <p>Enter valid Record</p>
                 		       
              
             <%           

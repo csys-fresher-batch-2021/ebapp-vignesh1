@@ -28,10 +28,9 @@
 				<tr>
 					<th scope="col">USERID</th>
 					<th scope="col">NAME</th>
-					<th scope="col">MONTH</th>
-					<th scope="col">YEAR</th>
+					<th scope="col">MONTH/YEAR</th>
 				     <th scope="col">AMOUNT PAID</th> 
-				    <th scope="col">DATE TIME</th>
+				    <th scope="col">PAID ON</th>
 				</tr>
 			</thead>
 <%
@@ -39,7 +38,7 @@ String user=(String)session.getAttribute("user");
 UserBean bean=new UserBean();
 bean.getUserid();
 System.out.print(bean.getUserid());
-String sql="SELECT * FROM E_CALBILL where CUSTOMERID=? AND STATUS=?";
+String sql="SELECT * FROM E_CALBILL where CUSTOMERID=? AND STATUS=? ORDER BY DATEANDTIME DESC; ";
 Connection con = ConnectionUtil.getConnection();
 PreparedStatement statement=con.prepareStatement(sql);
 statement.setString(1, user);
@@ -53,9 +52,8 @@ while(resultSet.next())
 	<tr>
 	<td><%=resultSet.getInt("USERID") %></td>
 	<td><%=resultSet.getString("NAME") %></td>
-	<td><%=resultSet.getString("MONTH") %></td>
-	<td><%=resultSet.getString("YEAR") %></td>	
-	<td><%=resultSet.getDouble("AMTPAID") %></td>
+	<td><%=resultSet.getString("MONTH") %> - <%=resultSet.getString("YEAR") %></td>	
+	<td>Rs.<%=resultSet.getDouble("AMTPAID") %></td>
 	<td><%=resultSet.getTimestamp("DATEANDTIME") %></td>
 
 

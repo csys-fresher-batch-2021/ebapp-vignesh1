@@ -89,7 +89,6 @@ public class CalcBillCtrl extends HttpServlet {
 			}
 
 		}
-
 		if (request.getParameter("Action").equals("Search")) {
 			Connection connection = null;
 			Statement st = null;
@@ -128,7 +127,9 @@ public class CalcBillCtrl extends HttpServlet {
 
 		}
 
-		if (request.getParameter("Action").equals("Pay Bill")) {
+		if (request.getParameter("Action").equals("Pay Bill"))
+
+		{
 			System.out.println("inside pay bill");
 			try {
 				CalcBill paybill = new CalcBill();

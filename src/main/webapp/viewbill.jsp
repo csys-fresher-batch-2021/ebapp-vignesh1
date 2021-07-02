@@ -68,7 +68,7 @@ while(resultSet.next())
 	System.out.print("value of a is "+a);
 	if(a.equals("PAID"))
 	{%>
-	<td><a  onclick="return false" class="btn btn-warning" >Pay</a></td>
+	<td></td>
 	
 	<%}
 	else{%>

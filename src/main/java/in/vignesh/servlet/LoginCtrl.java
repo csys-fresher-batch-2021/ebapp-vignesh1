@@ -57,7 +57,7 @@ public class LoginCtrl extends HttpServlet {
 				httpSession.setAttribute("admin", cusId);
 				request.setAttribute("customerid", cusId);
 				System.out.println(cusId);
-				response.sendRedirect("adminhome.jsp");
+				response.sendRedirect("viewusers.jsp");
 			}
 			if (result.equals("USER_ROLE")) {
 				System.out.println("inside auser");

@@ -23,23 +23,23 @@ if(request.getSession(false).getAttribute("user")==null)
 	    <li class="nav-item">
 		<a class="nav-link" href="userhome.jsp">Home</a>
 		
-	    <li class="nav-item">
-		<a class="nav-link" href="viewprofile.jsp">ViewProfile</a>
+	  
+		 <li class="nav-item">
+		<a  class="nav-link" href="PriceList.jsp">Unit Price</a>
 		</li>
 		 <li class="nav-item">
-		<a  class="nav-link" href="PriceList.jsp">PriceList</a>
-		</li>
-		 <li class="nav-item">
-		<a  class="nav-link" href="calculateBill.jsp">BillCalculator</a>
+		<a  class="nav-link" href="calculateBill.jsp">Bill Calculator</a>
 		</li>
 	    <li class="nav-item">
-		<a class="nav-link"  href="viewbill.jsp">ViewBill</a>
+		<a class="nav-link"  href="viewbill.jsp">My Bills</a>
 		</li>
 	    <li class="nav-item">
-		<a  class="nav-link" href="paymenthistory.jsp">PaymentHistory</a>
+		<a  class="nav-link" href="paymenthistory.jsp">Payments</a>
 		</li>
+		</ul>
+		<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item active" style=" color: white">
-		<a>Welcome <%=session.getAttribute("user") %></a>
+		<a class="nav-link" href="viewprofile.jsp" style=color:yellow;>Welcome <%=session.getAttribute("user") %></a>
 		</li>
 		 <li class="nav-item active">
 		<a class="nav-link" href="logout.jsp">Logout</a>
